@@ -1,0 +1,140 @@
+@font-face {
+  font-family: "Merriweather";
+  font-weight: normal;
+  src: local("Merriweather"), url("../fonts/Merriweather/Merriweather-Regular.woff2") format("woff2"); }
+
+body, p, ul, h1, h2, h3 {
+  margin: 0;
+  padding: 0; }
+
+body {
+  margin: 100px;
+  font: 16px/1.6 "Merriweather", "Noto Serif CJK SC", serif; }
+
+a:link, a:visited {
+  color: #09F;
+  text-decoration: none;
+  border-bottom: 1px dotted; }
+
+a:hover, a:active {
+  border-bottom-style: solid; }
+
+h3 {
+  margin: 0.5em 0;
+  font: bold 20px/1.6 "Merriweather", "Noto Serif CJK SC", serif; }
+
+.profile {
+  overflow: hidden;
+  padding-bottom: 2em;
+  border-bottom: 2px solid #eee; }
+  .profile .name {
+    margin-bottom: .5em; }
+    .profile .name h1, .profile .name h2 {
+      font-size: 28px;
+      display: inline; }
+    .profile .name h2 {
+      font-size: 24px;
+      font-weight: normal;
+      color: #999;
+      margin-left: 0.5em; }
+  .profile .contacts {
+    padding: 0; }
+    .profile .contacts li {
+      float: left;
+      list-style: none;
+      margin-right: 3em;
+      padding-left: 20px;
+      background-repeat: no-repeat;
+      background-position: 0 50%; }
+      .profile .contacts li.ic-mail {
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMiA0aDIwdjE2SDJWNHptMiAydjEyaDE2VjZINHptMCAwbDggNiA4LTZ2Mi41bC04IDYtOC02VjZ6Ii8+PC9zdmc+"); }
+      .profile .contacts li.ic-phone {
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMyA0YzAgOS4zNiA3LjYgMTYuOTUgMTcgMTdoMXYtNmgtNWwtMi41IDIuNWExNS4xIDE1LjEgMCAwIDEtNy03TDkgOFYzSDN2MXoiLz48L3N2Zz4="); }
+      .profile .contacts li.ic-wechat {
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNiAxOWgxNlYzSDJ2MjBsNC00eiIvPjwvc3ZnPg=="); }
+
+section {
+  margin: 2em 0; }
+
+.design ul, .project ul {
+  margin-left: 2em; }
+
+.design li, .project li {
+  margin-bottom: 0.5em; }
+
+.list {
+  padding-left: 10em; }
+  .list .date {
+    float: left;
+    width: 10em;
+    margin-left: -10em;
+    color: #999;
+    letter-spacing: -0.05em; }
+  .list .company {
+    font-weight: bold; }
+  .list .title {
+    color: #999; }
+  .list li {
+    padding-left: 0;
+    list-style-type: disc; }
+  .list + .list {
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+    border-top: 1px solid #eee; }
+  .list .content {
+    margin-top: 0.5em; }
+    .list .content p {
+      margin: 0.5em 0; }
+    .list .content ul {
+      margin: 0.5em 0 0.5em 2em; }
+
+.summary p {
+  text-indent: 2em;
+  margin: 1ex 0; }
+
+.summary ul {
+  margin: 1ex 0 1ex 2em; }
+
+.download {
+  position: absolute;
+  padding: 50px 100px;
+  top: 0;
+  right: 0;
+  font-family: "SF UI Text", Helvetica, Arial, sans-serif; }
+  .download a:link, .download a:visited {
+    padding: 0.5em;
+    border: 2px solid #09F;
+    border-radius: 4px; }
+  .download a:hover, .download a:active {
+    color: #fff;
+    background: #09F; }
+
+@media screen and (max-width: 420px) {
+  body {
+    margin: 100px 16px; }
+  .download {
+    padding: 50px 16px; } }
+
+@media screen and (max-width: 800px) {
+  .list {
+    padding-left: 0; }
+    .list .date {
+      float: none;
+      width: 0 0 1em;
+      margin-left: 0; } }
+
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+    font: 10pt/1.5 "Merriweather", "Noto Serif CJK SC", serif; }
+  a:link, a:visited {
+    border: none; }
+  a::after {
+    content: " (" attr(href) ")";
+    color: #999; }
+  .download, footer {
+    display: none; }
+  .profile .contacts li {
+    padding-left: 0;
+    background: none; } }

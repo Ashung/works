@@ -1,0 +1,210 @@
+$header-font: sans-serif;
+$body-font: "Merriweather", "Noto Serif CJK SC", serif;
+
+$title-text-size: 28px;
+$header-text-size: 20px;
+$body-text-size: 16px;
+$title-text-size-print: 15pt;
+$header-text-size-print: 12pt;
+$body-text-size-print: 10pt;
+
+$primary-text-color: #000;
+$secondary-text-color: #999;
+$link-text-color: #09F;
+
+@mixin icon-phone {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMyA0YzAgOS4zNiA3LjYgMTYuOTUgMTcgMTdoMXYtNmgtNWwtMi41IDIuNWExNS4xIDE1LjEgMCAwIDEtNy03TDkgOFYzSDN2MXoiLz48L3N2Zz4=");
+}
+
+@mixin icon-mail {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMiA0aDIwdjE2SDJWNHptMiAydjEyaDE2VjZINHptMCAwbDggNiA4LTZ2Mi41bC04IDYtOC02VjZ6Ii8+PC9zdmc+");
+}
+
+@mixin icon-wechat {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNiAxOWgxNlYzSDJ2MjBsNC00eiIvPjwvc3ZnPg==");
+}
+
+@font-face {
+    font-family: Merriweather;
+    font-weight: normal;
+    src: local('Merriweather Light'), url(../font/Merriweather-Light.ttf) format('truetype');
+}
+
+body, p, ul, h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 100px;
+    font: #{$body-text-size}/1.6 $body-font;
+}
+
+a:link, a:visited {
+    color: $link-text-color;
+    text-decoration: none;
+    border-bottom: 1px dotted;
+}
+a:hover, a:active {
+    border-bottom-style: solid;
+}
+
+h3 {
+    margin: 0.5em 0;
+    font: bold #{$header-text-size}/1.6 $body-font;
+}
+
+.profile {
+    overflow: hidden;
+    padding-bottom: 2em;
+    border-bottom: 2px solid #eee;
+    .name {
+        margin-bottom: .5em;
+        h1, h2 {
+            font-size: $title-text-size;
+            display: inline;
+        }
+        h2 {
+            font-size: $title-text-size - 4px;
+            font-weight: normal;
+            color: $secondary-text-color;
+            margin-left: 0.5em;
+        }
+    }
+    .contacts {
+        padding: 0;
+        li {
+            float: left;
+            list-style: none;
+            margin-right: 3em;
+            padding-left: 20px;
+            background-repeat: no-repeat;
+            background-position: 0 50%;
+            &.ic-mail {
+                @include icon-mail;
+            }
+            &.ic-phone {
+                @include icon-phone;
+            }
+            &.ic-wechat {
+                @include icon-wechat;
+            }
+        }
+    }
+}
+
+section {
+    margin: 2em 0;
+}
+
+.design, .project {
+    ul {
+        margin-left: 2em;
+    }
+    li {
+        margin-bottom: 0.5em;
+    }
+}
+
+.list {
+    padding-left: 10em;
+    .date {
+        float: left;
+        width: 10em;
+        margin-left: -10em;
+        color: $secondary-text-color;
+        letter-spacing: -0.05em;
+    }
+    .company {
+        font-weight: bold;
+    }
+    .title {
+        color: $secondary-text-color;
+    }
+    li {
+        padding-left: 0;
+        list-style-type: disc;
+    }
+    & + .list {
+        margin-top: 0.5em;
+        padding-top: 0.5em;
+        border-top: 1px solid #eee;
+    }
+    .content {
+        margin-top: 0.5em;
+        p {
+            margin: 0.5em 0;
+        }
+        ul {
+            margin: 0.5em 0 0.5em 2em;
+        }
+    }
+}
+
+.summary {
+    p {
+        text-indent: 2em;
+        margin: 1ex 0;
+    }
+    ul {
+        margin: 1ex 0 1ex 2em;
+    }
+}
+
+.download {
+    position: absolute;
+    padding: 50px 100px;
+    top: 0;
+    right: 0;
+    font-family: "SF UI Text", Helvetica, Arial, sans-serif;
+    a:link, a:visited {
+        padding: 0.5em;
+        border: 2px solid $link-text-color;
+        border-radius: 4px;
+    }
+    a:hover, a:active {
+        color: #fff;
+        background: $link-text-color;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    body {
+        margin: 100px 16px;
+    }
+    .download {
+        padding: 50px 16px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .list {
+        padding-left: 0;
+        .date {
+            float: none;
+            width: 0 0 1em;
+            margin-left: 0;
+        }
+    }
+}
+
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        font: #{$body-text-size-print}/1.5 $body-font;
+    }
+    a:link, a:visited {
+        border: none;
+    }
+    a::after {
+        content: " (" attr(href) ")";
+        color: $secondary-text-color;
+    }
+    .download, footer {
+        display: none;
+    }
+    .profile .contacts li {
+        padding-left: 0;
+        background: none;
+    }
+}
