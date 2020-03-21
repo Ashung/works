@@ -15,42 +15,42 @@
     font-style:  normal;
     font-weight: 500;
     font-display: fallback;
-    src: url("fonts/Inter/Inter-Medium.woff2") format("woff2");
+    src: url("../fonts/Inter/Inter-Medium.woff2") format("woff2");
 }
 @font-face {
     font-family: "Inter";
     font-style:  normal;
     font-weight: 600;
     font-display: fallback;
-    src: url("fonts/Inter/Inter-SemiBold.woff2") format("woff2");
+    src: url("../fonts/Inter/Inter-SemiBold.woff2") format("woff2");
 }
 @font-face {
     font-family: "Inter";
     font-style:  normal;
     font-weight: 800;
     font-display: fallback;
-    src: url("fonts/Inter/Inter-ExtraBold.woff2") format("woff2");
+    src: url("../fonts/Inter/Inter-ExtraBold.woff2") format("woff2");
 }
 @font-face {
     font-family: "Inter Var";
     font-weight: 100 900;
     font-style: oblique 0deg 10deg;
     font-display: fallback;
-    src: url("fonts/Inter/Inter.var.woff2") format("woff2");
+    src: url("../fonts/Inter/Inter.var.woff2") format("woff2");
 }
 @font-face {
     font-family: "PT Sans";
     font-style: normal;
     font-weight: 400;
     font-display: fallback;
-    src: local("PT Sans"), local("PTSans-Regular"), url("fonts/PT_Sans/PTSans-Regular.woff2") format("woff2");
+    src: local("PT Sans"), local("PTSans-Regular"), url("../fonts/PT_Sans/PTSans-Regular.woff2") format("woff2");
 }
 @font-face {
     font-family: "PT Sans";
     font-style: normal;
     font-weight: 700;
     font-display: fallback;
-    src: local("PT Sans Bold"), local("PTSans-Bold"), url("fonts/PT_Sans/PTSans-Bold.woff2") format("woff2");
+    src: local("PT Sans Bold"), local("PTSans-Bold"), url("../fonts/PT_Sans/PTSans-Bold.woff2") format("woff2");
 }
 
 
