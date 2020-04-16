@@ -1,7 +1,10 @@
 <!doctype html>
 <head>
 <meta charset="utf-8">
-<title>洪斯胜 - 作品</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>洪斯胜 - 近期作品</title>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-68708846-2"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -12,36 +15,70 @@ gtag('config', 'UA-68708846-2');
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/velocity.min.js"></script>
 <script src="assets/ScrollMagic.min.js"></script>
-<!-- <script src="script/debug.addIndicators.min.js"></script> -->
+<!-- <script src="assets/debug.addIndicators.min.js"></script> -->
 <script>
 const controller = new ScrollMagic.Controller();
 </script>
 </head>
 <body>
 <nav>
+    <a id="page-nav-toggle" class="page-nav-toggle" href="javascript:void(0)">
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+    </a>
     <ul id="page-nav">
-        <li><a href="#app">App</a></li>
-        <li><a href="#theme">Theme</a></li>
-        <li><a href="#icon">Icon</a></li>
-        <li><a href="#web">Web</a></li>
-        <li><a href="#sketch">Sketch</a></li>
-        <li><a href="#figma">Figma</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="#about"><span>About</span></a></li>
+        <li><a href="#app"><span>App</span></a></li>
+        <li><a href="#theme"><span>Theme</span></a></li>
+        <li><a href="#icon"><span>Icon</span></a></li>
+        <li><a href="#web"><span>Web</span></a></li>
+        <li><a href="#sketch"><span>Sketch</span></a></li>
+        <li><a href="#figma"><span>Figma</span></a></li>
     </ul>
     <div id="nav-underline"></div>
 </nav>
+
+<section id="about" class="about">
+    <h3>关于</h3>
+    <div>
+        <p>
+            本人有十年以上 UI 设计工作经历，多年互联网和手机公司工作经验，
+            熟悉 Android、iOS 等平台界面设计规范，除了扎实的设计功底外，
+            也熟悉交互设计和前端开发。
+            目前于主流设计软件 Sketch 与 Figma 的插件开发领域有一定影响，
+            帮助了许多设计师更高效的使用设计软件，解决各种复杂繁琐的问题，
+            提高团队效率，减少与开发沟通合作的障碍。
+        </p>
+        <p>
+            以下为我近期较有代表性的 UI 设计作品和开源项目，
+            包括 App 界面设计、Android 主题设计、图标设计、
+            Node.js CLI、 Node.js 模块、Electron 应用、Sketch 和 Figma 插件。
+            早期设计作品可访问我的 <a href="https://www.behance.net/ashung">Behance</a>。
+        </p>
+        <p>
+            如果您觉得我符合贵司 UI 设计师的职位要求，可以通过以下方式联系我。
+        </p>
+        <ul class="contact">
+            <li>电话: <a href="tel://13666092891">136 6609 2891</a></li>
+            <li>微信: <a id="wechat" href="javascript:void(0)">Ashung</a></li>
+            <li>邮件: <a href="mailto://ashung.hung@foxmail.com">ashung.hung@foxmail.com</a></li>
+            <li>简历: <a href="resume.html">在线版</a> <a href="resume.pdf">PDF 版 (542 KB)</a></li>
+        </ul>
+    </div>
+</section>
 
 <div id="app"></div>
 <section id="section-app-1" class="works center">
     <div class="works-text">
         <h3 class="works-title">Android 相册应用</h3>
         <ul class="works-info">
-            <li class="info-date">2019/08</li>
+            <li class="info-date">2019/08 - 2019/09</li>
             <li class="info-tools">Sketch</li>
         </ul>
         <div class="works-description">
             <p>360OS 5.0（基于 Android 系统）默认相册应用的界面设计。</p>
-            <p>在保留系统相册原有功能基础上，重新设计了所有原有界面与新增功能的界面，同时也优化了许多已存在的设计与交互问题。</p>
+            <p>在保留系统相册原有功能基础上，使用 360OS 5.0 风格重新设计了所有原有界面与新增功能的界面，同时也优化了许多已存在的设计与交互问题。</p>
         </div>
     </div>
     <div class="works-content flex-row flex-center masonry-images">
@@ -81,7 +118,7 @@ const controller = new ScrollMagic.Controller();
 const sceneApp1 = new ScrollMagic.Scene({triggerElement: '#section-app-1', duration: document.getElementById('section-app-1').offsetHeight})
     // .addIndicators()
     .addTo(controller)
-    .on('enter', (e) => {
+    .on('enter', e => {
         document.querySelectorAll('#section-app-1 div[class|="col"]').forEach((col, i) => {
             Velocity(col, {translateY: '100px', opacity: 0}, {duration: 0, complete: (ele) => {
                 Velocity(col, {translateY: '0px', opacity: 1}, {delay: 200 * i, duration: 500, easing: 'ease-in'});
@@ -98,7 +135,8 @@ const sceneApp1 = new ScrollMagic.Scene({triggerElement: '#section-app-1', durat
             <li class="info-tools">Sketch</li>
         </ul>
         <div class="works-description">
-            <p>360OS 5.0 部分内置应用的界面设计。任职期间参与了多次系统整体风格的迭代设计，前期风格探索与对标，熟悉 Android 平台规范和移动端界面设计。</p>
+            <p>360OS 5.0 部分内置应用的界面设计。</p>
+            <p>任职期间参与了多次系统整体风格的迭代设计，前期风格探索与对标，熟悉 Android 平台规范和移动端界面设计。</p>
         </div>
     </div>
     <div id="target-2" class="works-content flex-row flex-center masonry-images">
@@ -128,7 +166,7 @@ const sceneApp1 = new ScrollMagic.Scene({triggerElement: '#section-app-1', durat
 const sceneApp2 = new ScrollMagic.Scene({triggerElement: '#section-app-2'})
     // .addIndicators()
     .addTo(controller)
-    .on('enter', (e) => {
+    .on('enter', e => {
         document.querySelectorAll('#section-app-2 div[class|="col"]').forEach((col, i) => {
             Velocity(col, {translateY: '100px', opacity: 0}, {duration: 0, complete: (ele) => {
                 Velocity(col, {translateY: '0px', opacity: 1}, {delay: 200 * i, duration: 500, easing: 'ease-in'});
@@ -148,7 +186,6 @@ const sceneApp2 = new ScrollMagic.Scene({triggerElement: '#section-app-2'})
         </ul>
         <div class="works-description">
             <p>360OS 4.0 的内置主题设计，考虑到海外的手机商与用户的喜好，图标采用了辨识度较高的图形设计，色彩明快，风格简洁。</p>
-            <p>在系统主题不支持自定义形状的限制下，通过改进设计方法，编写 Sketch 脚本，实现不需要重复设计，也能够根据客户需求快速生成各种形状的图标。</p>
         </div>
     </div>
     <div class="works-content">
@@ -163,6 +200,14 @@ const sceneApp2 = new ScrollMagic.Scene({triggerElement: '#section-app-2'})
                 <div class="img"><img alt="theme_preview" width="260" height="520" src="images/theme/theme_1_preview3_low.jpg" data-srcset="images/theme/theme_1_preview3_1x.jpg 1x, images/theme/theme_1_preview3_2x.jpg 2x"></div>
             </div>
         </div>
+    </div>
+    <div class="works-text">
+        <h3 class="works-title works-title-small">无限制的图标形状</h3>
+        <div class="works-description">
+            <p>Android 8.0 引入了 Adaptive Icon，它可以被设置为不同的形状。然而在 360OS 的主题系统上并不支持这个新特性，通过改进设计方法，使用 Sketch 脚本，实现不需要重复设计，也能够根据客户需求快速生成各种形状的图标。</p>
+        </div>
+    </div>
+    <div class="works-content">
         <svg height="0" width="0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <defs>
                 <path id="icon-shape" d="M0,0h104v104h-104z"/>
@@ -220,15 +265,58 @@ const sceneApp2 = new ScrollMagic.Scene({triggerElement: '#section-app-2'})
                 <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M8.859.75H7.14c-1.834 0-2.825.235-3.718.713a4.712 4.712 0 00-1.96 1.96C.985 4.316.75 5.307.75 7.141V8.86c0 1.834.235 2.825.713 3.718a4.712 4.712 0 001.96 1.96c.893.478 1.884.713 3.718.713H8.86c1.834 0 2.825-.235 3.718-.713a4.712 4.712 0 001.96-1.96c.478-.893.713-1.884.713-3.718V7.14c0-1.834-.235-2.825-.713-3.718a4.712 4.712 0 00-1.96-1.96C11.684.985 10.693.75 8.859.75z" stroke="#FFF" stroke-width="1.5" fill="none" stroke-opacity=".4"/></svg>
             </div>
             <label for="icon-smooth-radius">超椭圆</label>
+            <div id="icon-popup-tip" class="popup-tip animate-shake">拖动滑块以改变图标形状</div>
         </div>
-        <div class="tip">拖动滑条以改变图标形状</div>
+        <div class="weather-icon">
+            <svg width="240" height="240" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <clipPath id="icon-mask">
+                        <path id="icon-shape-2" d="M0,0h104v104h-104z"/>
+                    </clipPath>
+                </defs>
+                <g clip-path="url(#icon-mask)" transform="translate(8,8)">
+                    <g transform="translate(-8,-8)">
+                        <rect fill="#196EE6" x="0" y="0" width="120" height="120"/>
+                        <circle fill="#FFCC33" cx="60" cy="60" r="32"/>
+                        <rect id="weather-cloud" fill="#FFFFFF" fill-opacity="0.9" x="64" y="60" width="36" height="24" rx="12"/>
+                    </g>
+                </g>
+                <path stroke="#FFFFFF" opacity="0.6" fill="none" d="M60 28a32 32 0 100 64 32 32 0 100-64z"/>
+                <path stroke="#FFFFFF" opacity="0.2" fill="none" d="M0 0l120 120M0 120L120 0M60 0v120M0 60h120"/>
+                <rect stroke="#FFFFFF" opacity="0.4" fill="none" x="32" y="32" width="56" height="56" rx="4"/>
+                <rect stroke="#FFFFFF" opacity="0.4" fill="none" x="36" y="28" width="48" height="64" rx="4"/>
+                <rect stroke="#FFFFFF" opacity="0.4" fill="none" x="28" y="36" width="64" height="48" rx="4"/>
+                <path stroke="#FFFFFF" opacity="0.4" fill="none" d="M0.5 0.5h119v119H0.5z"/>
+            </svg>
+        </div>
     </div>
+    <div class="works-text">
+        <h3 class="works-title works-title-small">Widget 设计</h3>
+        <div class="works-description">
+            <p>Widget 的设计需要兼容白天、夜晚以及不同天气等场景。</p>
+        </div>
+    </div>
+    <div class="works-content">
+        <div id="widget-sky"></div>
+        <div id="widget">
+            <div id="widget-bg"></div>
+            <div id="widget-icon">
+                <div id="widget-icon-sun"></div>
+                <div id="widget-icon-moon"></div>
+                <div id="widget-icon-cloud"></div>
+            </div>
+            <div id="widget-date">Date</div>
+            <div id="widget-time">10:08</div>
+            <div id="widget-weather">深圳 晴 21°C</div>
+        </div>
+    </div>
+    <div id="widget-sky-remove"></div>
 </section>
 <script>
 const sceneTheme1 = new ScrollMagic.Scene({triggerElement: '#section-theme-1'})
     // .addIndicators()
     .addTo(controller)
-    .on('enter', (e) => {
+    .on('enter', e => {
         document.querySelectorAll('#section-theme-1 div[class|="col"]').forEach((col, i) => {
             Velocity(col, {translateY: '100px', opacity: 0}, {duration: 0, complete: (ele) => {
                 Velocity(col, {translateY: '0px', opacity: 1}, {delay: 200 * i, duration: 500, easing: 'ease-in'});
@@ -239,7 +327,9 @@ const sceneTheme1 = new ScrollMagic.Scene({triggerElement: '#section-theme-1'})
 const iconRadiusRange = document.getElementById('icon-radius');
 const smoothRadius = document.getElementById('icon-smooth-radius');
 const pathElement = document.getElementById('icon-shape');
+const pathElementWeather = document.getElementById('icon-shape-2');
 const iconImage = document.getElementById('icon-image');
+const iconPopupTip = document.getElementById('icon-popup-tip');
 
 let radius = 40;
 iconRadiusRange.value = radius;
@@ -247,10 +337,12 @@ iconRadiusRange.value = radius;
 changeMask();
 
 iconRadiusRange.addEventListener('change', changeMask);
+iconRadiusRange.addEventListener('change', () => iconPopupTip.remove());
 iconRadiusRange.addEventListener('input', changeMask);
+iconRadiusRange.addEventListener('input', () => iconPopupTip.remove());
 smoothRadius.addEventListener('change', changeMask);
 
-function changeMask(event) {
+function changeMask() {
     let r = parseInt(iconRadiusRange.value);
     let d = '';
     const w = 104;
@@ -279,10 +371,105 @@ function changeMask(event) {
         }
     }
     pathElement.setAttribute('d', d);
+    pathElementWeather.setAttribute('d', d);
     // Safari not support clip-path with svg clipPath, but support -webkit-mask-image: url(svg url encode)
     if (window.safari) {
         let code = `url("data:image/svg+xml,%3Csvg width='136' height='136' viewBox='0 0 136 136' xmlns='http://www.w3.org/2000/svg'%3E%3Cg transform='translate(8 8)'%3E%3Cpath d='${d}'/%3E%3C/g%3E%3C/svg%3E%0A")`;
         iconImage.style.webkitMaskImage = code;
+    }
+}
+
+const date = new Date();
+date.setHours(10);
+date.setMinutes(8);
+let timeStamp = date.getTime();
+const sectionTheme1 = document.getElementById('section-theme-1');
+const widgetBackground = document.getElementById('widget-bg');
+const widgetDate = document.getElementById('widget-date');
+const widgetTime = document.getElementById('widget-time');
+const widgetIconSun = document.getElementById('widget-icon-sun');
+const widgetIconMoon = document.getElementById('widget-icon-moon');
+const widgetSky = document.getElementById('widget-sky');
+
+widgetDate.innerText = (date.getMonth() < 10 ? '0' + date.getMonth() : date.getMonth())
+    + '-'
+    + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate())
+    + ' '
+    + ['周日', '周一', '周二', '周三', '周四', '周五', '周六'][date.getDay()];
+
+let doCreateWidgetSky = true; //duration: 240, offset: 100
+const sceneThemeWidget = new ScrollMagic.Scene({triggerElement: '#widget-sky', duration: 240, offset: 100})
+    // .addIndicators()
+    .setPin("#widget")
+    .addTo(controller)
+    .on('enter', e => {
+        if (doCreateWidgetSky) {
+            doCreateWidgetSky = false;
+            createWidgetSky();
+        }
+    })
+    .on('progress', e => {
+        let weatherTime = new Date(timeStamp + e.progress * 1000 * 60 * 60 * 12);
+        widgetTime.innerText = (weatherTime.getHours() < 10 ? '0' + weatherTime.getHours() : weatherTime.getHours())
+            + ':'
+            + (weatherTime.getMinutes() < 10 ? '0' + weatherTime.getMinutes() : weatherTime.getMinutes());
+        if (weatherTime.getHours() > 18) {
+            widgetSky.style.opacity = '1';
+            sectionTheme1.style.backgroundColor = '#211D49';
+            widgetIconSun.style.top = '92px';
+            widgetIconMoon.style.top = '12px';
+            widgetBackground.style.backgroundPositionY = '-311px';
+        } else {
+            widgetSky.style.opacity = '0';
+            sectionTheme1.style.backgroundColor = '#322C6E';
+            widgetIconSun.style.top = '12px';
+            widgetIconMoon.style.top = '92px';
+            widgetBackground.style.backgroundPositionY = '0';
+        }
+    });
+const sceneThemeWidgetRemove = new ScrollMagic.Scene({triggerElement: '#widget-sky-remove', offset: 96})
+    // .addIndicators()
+    .addTo(controller)
+    .on('progress', e => {
+        if (e.progress === 0) {
+            if (doCreateWidgetSky) {
+                doCreateWidgetSky = false;
+                createWidgetSky();
+            }
+        } else {
+            if (!doCreateWidgetSky) {
+                doCreateWidgetSky = true;
+                widgetSky.innerHTML = '';
+            }
+        }
+    });
+
+function createWidgetSky() {
+    for (let i = 0; i < 100; i++) {
+        let star = document.createElement('div');
+        star.className = 'star';
+        star.style.bottom = (Math.random() * window.innerHeight) + 'px';
+        star.style.left = (Math.random() * 100) + '%';
+        if (Math.random() > 0.6) {
+            star.style.animation = `star 3s ease ${Math.random() * 10}s infinite`;
+        }
+        if (Math.random() > 0.5) {
+            star.style.width = '1px';
+            star.style.height = '1px';
+        }
+        if (Math.random() > 0.5) {
+            star.style.backgroundColor = `rgba(255, 255, 255, ${Math.random()}`;
+        }
+        widgetSky.appendChild(star);
+    }
+    for (let i = 0; i < 6; i++) {
+        let meteor = document.createElement('div');
+        meteor.className = 'meteor';
+        meteor.style.bottom = (Math.random() * window.innerHeight) + 'px';
+        meteor.style.left = (Math.random() * 100) + '%';
+        meteor.style.animation = `meteor 5s ease ${Math.random() * 10}s infinite`;
+        meteor.style.width = Math.floor(Math.random() * (500 - 200 + 1) + 200) + 'px';
+        widgetSky.appendChild(meteor);
     }
 }
 </script>
@@ -302,18 +489,6 @@ function changeMask(event) {
         <img alt="android_theme" width="1140" height="610" src="images/theme/theme_2_low.jpg" data-srcset="images/theme/theme_2_1x.jpg 1x, images/theme/theme_2_2x.jpg 2x">
     </div>
 </section>
-<script>
-const sceneTheme2 = new ScrollMagic.Scene({triggerElement: '#section-theme-2'})
-    // .addIndicators()
-    .addTo(controller)
-    .on('enter', (e) => {
-        document.querySelectorAll('#section-theme-2 img').forEach((img) => {
-            Velocity(img, {opacity: 0}, {duration: 0, complete: (ele) => {
-                Velocity(img, {opacity: 1}, {duration: 1000});
-            }});
-        });
-    });
-</script>
 
 <section id="section-theme-3" class="works center">
     <div class="works-text">
@@ -326,21 +501,34 @@ const sceneTheme2 = new ScrollMagic.Scene({triggerElement: '#section-theme-2'})
             <p>半写实风格图标设计，图标的形状灵感来源于 Apple TV。</p>
         </div>
     </div>
+    <div class="works-content music-icon-wrap">
+        <div id="music-icon">
+            <div class="music-icon-shadow"></div>
+            <div class="music-icon-bg">
+                <div class="music-icon-shine1"></div>
+                <div class="music-icon-shine2"></div>
+            </div>
+            <div id="music-icon-fg"></div>
+        </div>
+    </div>
     <div class="works-content">
         <img alt="android_theme" width="1160" height="600" src="images/theme/theme_3_low.jpg" data-srcset="images/theme/theme_3_1x.jpg 1x, images/theme/theme_3_2x.jpg 2x">
     </div>
 </section>
 <script>
-const sceneTheme3 = new ScrollMagic.Scene({triggerElement: '#section-theme-3'})
-    // .addIndicators()
-    .addTo(controller)
-    .on('enter', (e) => {
-        document.querySelectorAll('#section-theme-3 img').forEach((img) => {
-            Velocity(img, {opacity: 0}, {duration: 0, complete: (ele) => {
-                Velocity(img, {opacity: 1}, {duration: 1000});
-            }});
-        });
-    });
+const musicIcon = document.getElementById('music-icon');
+const musicIconFg = document.getElementById('music-icon-fg');
+musicIcon.addEventListener('mousemove', e => {
+    let cx = (e.clientX - (musicIcon.getBoundingClientRect().left + musicIcon.getBoundingClientRect().right) / 2) * 2 / musicIcon.getBoundingClientRect().width;
+    let cy = (e.clientY - (musicIcon.getBoundingClientRect().top + musicIcon.getBoundingClientRect().bottom) / 2) * 2 / musicIcon.getBoundingClientRect().height;
+    let transform =  `rotateX(${cx * 10}deg) rotateY(${cy * 20}deg) scale3d(1.05, 1.05, 1.05)`;
+    musicIcon.style.transform = transform;
+    musicIconFg.style.transform = `translateX(${cx * -5}px) translateY(${cy * -5}px)`;
+});
+musicIcon.addEventListener('mouseout', e => {
+    musicIcon.style.transform = 'none';
+    musicIconFg.style.transform = 'none';
+});
 </script>
 
 <section id="section-theme-4" class="works center dark">
@@ -355,19 +543,85 @@ const sceneTheme3 = new ScrollMagic.Scene({triggerElement: '#section-theme-3'})
         </div>
     </div>
     <div class="works-content">
-        <img alt="android_theme" width="1160" height="440" src="images/theme/theme_4_low.jpg" data-srcset="images/theme/theme_4_1x.jpg 1x, images/theme/theme_4_2x.jpg 2x">
+        <div class="theme-wrapper">
+            <img alt="android_theme" width="1160" height="440" src="images/theme/theme_4_low.jpg" data-srcset="images/theme/theme_4_1x.jpg 1x, images/theme/theme_4_2x.jpg 2x">
+            <div id="theme-icon-clock" class="theme-icon theme-icon-clock">
+                <div id="theme-icon-clock-hour" class="theme-icon-layer"><div class="theme-icon-layer theme-icon-layer-1"></div></div> 
+                <div id="theme-icon-clock-minute" class="theme-icon-layer"><div class="theme-icon-layer theme-icon-layer-2"></div></div> 
+                <div class="theme-icon-layer theme-icon-layer-3"></div>
+            </div>
+            <div id="theme-icon-calendar" class="theme-icon theme-icon-calendar">
+                <div id="theme-icon-calendar-week" class="theme-icon-layer theme-icon-layer-1"></div>
+                <div id="theme-icon-calendar-day" class="theme-icon-layer theme-icon-layer-2"></div>
+                <div class="theme-icon-layer theme-icon-layer-3"></div>
+            </div>
+            <div class="theme-icon theme-icon-clean">
+                <div class="theme-icon-layer theme-icon-layer-1"></div>
+                <div class="theme-icon-layer theme-icon-layer-2"></div>
+                <div class="theme-icon-layer theme-icon-layer-3"></div>
+            </div>
+            <div class="theme-icon theme-icon-setting">
+                <div class="theme-icon-layer theme-icon-layer-1"></div>
+                <div class="theme-icon-layer theme-icon-layer-2"></div>
+                <div class="theme-icon-layer theme-icon-layer-3"></div>
+            </div>
+            <div class="theme-icon theme-icon-safe">
+                <div class="theme-icon-layer theme-icon-layer-1"></div>
+                <div class="theme-icon-layer theme-icon-layer-2"></div>
+                <div class="theme-icon-layer theme-icon-layer-3"></div>
+            </div>
+            <div class="theme-icon theme-icon-compass">
+                <div class="theme-icon-layer theme-icon-layer-1"></div>
+                <div class="theme-icon-layer theme-icon-layer-2"></div>
+                <div class="theme-icon-layer theme-icon-layer-3"></div>
+            </div>
+            <div class="theme-icon theme-icon-security">
+                <div class="theme-icon-layer theme-icon-layer-1"></div>
+                <div class="theme-icon-layer theme-icon-layer-2"></div>
+                <div class="theme-icon-layer theme-icon-layer-3"></div>
+            </div>
+        </div>
     </div>
 </section>
 <script>
-const sceneTheme4 = new ScrollMagic.Scene({triggerElement: '#section-theme-4'})
+const themeIconClockHour = document.getElementById('theme-icon-clock-hour');
+const themeIconClockMinute = document.getElementById('theme-icon-clock-minute');
+const themeIconCalenderWeek = document.getElementById('theme-icon-calendar-week');
+const themeIconCalenderDay = document.getElementById('theme-icon-calendar-day');
+const themeIconAnimations = document.querySelectorAll('.theme-icon');
+const themeIconAnimationLayers = document.querySelectorAll('.theme-icon-layer');
+const sceneTheme4 = new ScrollMagic.Scene({triggerElement: '#section-theme-4', duration: document.getElementById('section-theme-4').offsetHeight})
     // .addIndicators()
     .addTo(controller)
-    .on('enter', (e) => {
-        document.querySelectorAll('#section-theme-4 img').forEach((img) => {
-            Velocity(img, {opacity: 0}, {duration: 0, complete: (ele) => {
-                Velocity(img, {opacity: 1}, {duration: 1000});
-            }});
-        });
+    .on('enter', e => {
+        for (let animation of themeIconAnimations) {
+            if (!animation.classList.contains('animate')) {
+                animation.classList.add('animate');
+            }
+            for (let layer of themeIconAnimationLayers) {
+                layer.style.mozAnimationPlayState = 'running';
+                layer.style.webkitAnimationPlayState = 'running';
+                layer.style.animationPlayState = 'running';
+            }
+        }
+        // 时钟
+        let date = new Date();
+        let hourDeg = (date.getHours() * 60 + date.getMinutes()) * 0.5;
+        let minuteDeg = date.getMinutes() * 6;
+        themeIconClockHour.style.transform = `rotate(${hourDeg}deg)`;
+        themeIconClockMinute.style.transform = `rotate(${minuteDeg}deg)`;
+        // 日历
+        themeIconCalenderWeek.innerText = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'][date.getDay()];
+        themeIconCalenderDay.innerText = date.getDate();
+    })
+    .on('leave', e => {
+        for (let animation of themeIconAnimations) {
+            for (let layer of themeIconAnimationLayers) {
+                layer.style.mozAnimationPlayState = 'paused';
+                layer.style.webkitAnimationPlayState = 'paused';
+                layer.style.animationPlayState = 'paused';
+            }
+        }
     });
 </script>
 
@@ -461,11 +715,11 @@ const sceneTheme4 = new ScrollMagic.Scene({triggerElement: '#section-theme-4'})
             <li class="info-programme">Node.js, gulp</li>
         </ul>
         <div class="works-description">
-            <p>360OS 3.0 系统图标。考虑到系统会被搭载在较多低端设备上，图标了采用减少弧线与圆角的设计，使得图标即使在相对低端的屏幕上也能够清晰显示。</p>
+            <p>360OS 3.0 系统图标。考虑到系统会被搭载在较多低端设备上，图标有意的减少线形、弧线与圆角的设计，使得图标即使在相对低端的屏幕上也能够清晰显示。</p>
         </div>
     </div>
-    <div class="works-content">
-        <img id="android-system-icon" alt="android_system_icon" width="993" height="473" src="images/icon/system_icons_low.png" data-srcset="images/icon/system_icons_1x.png 1x, images/icon/system_icons_2x.png 2x">
+    <div class="works-content flex-row flex-center icon-change-color">
+        <div class="popup-tip animate-shake">设计师可以选择和导出任意颜色图标</div>
         <form id="icon-change-color">
             <input type="radio" name="icon-color" value="#000000" title="Black" checked>
             <input type="radio" name="icon-color" value="#FF4332" title="Red">
@@ -476,7 +730,18 @@ const sceneTheme4 = new ScrollMagic.Scene({triggerElement: '#section-theme-4'})
             <input type="radio" name="icon-color" value="#FF3399" title="Pink">
             <input type="radio" name="icon-color" value="#666666" title="Gray">
         </form>
-        <p class="tip">快速导出任意颜色资源。</p>
+    </div>
+    <div class="works-content">
+        <img id="android-system-icon" alt="android_system_icon" width="993" height="473" src="images/icon/system_icons_low.png" data-srcset="images/icon/system_icons_1x.png 1x, images/icon/system_icons_2x.png 2x">
+    </div>
+    <div class="works-text">
+        <h3 class="works-title works-title-small">自动生成资源</h3>
+        <div class="works-description">
+            <p>即使是设计项目我也会借鉴前端开发的自动化思想。在项目中，我集成了 gulp 自动化构建工具，这样可以快速从 Sketch 文档直接生成各种类型资源，包括多种尺寸 PNG、SVG、图标字体和 Android Vector Drawable 矢量资源。</p>
+            <p><a class="read-more" href="https://ashung.github.io/posts/sketch-export-assets-with-gulp.html">使用 gulp 导出 Sketch 资源</a></p>
+        </div>
+    </div>
+    <div class="works-content">
         <div id="icon-export-demo" class="flex-column flex-center icon-export-demo">
             <div class="code-window lang-shell">
                 <svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14">
@@ -488,14 +753,13 @@ const sceneTheme4 = new ScrollMagic.Scene({triggerElement: '#section-theme-4'})
             </div>
             <div id="icon-export-file"></div>
         </div>
-        <p class="tip">使用 Node.js 和 Gulp 开发的工具，可以从 Sketch 文档直接生成各种类型资源，包括多种尺寸 PNG、SVG、图标字体和 Android Vector Drawable 矢量资源。</p>
     </div>
 </section>
 <script>
 const changeColor = document.getElementById('icon-change-color');
 changeColor.elements['icon-color'].forEach(radio => {
     radio.style.backgroundColor = radio.value;
-    radio.addEventListener('change', (event) => {
+    radio.addEventListener('change', event => {
         const color = changeColor.elements['icon-color'].value;
         const r = Number('0x' + color.substr(1, 2));
         const g = Number('0x' + color.substr(3, 2));
@@ -533,7 +797,7 @@ const iconExportCode = document.getElementById('icon-export-code');
 const sceneIcon1Export = new ScrollMagic.Scene({triggerElement: '#icon-export-demo', duration: iconExportDemo.offsetHeight + 80})
     .addTo(controller)
     // .addIndicators()
-    .on('enter',  (e) => {
+    .on('enter',  e => {
         if (iconExportPlaying === false) {
             iconExportPlaying = true;
             const speed = 200;
@@ -595,7 +859,7 @@ function showExportFile(names, hide) {
 }
 </script>
 
-<section id="section-icon-2" class="works dark split">
+<section id="section-icon-2" class="works dark split flex-medium">
     <div class="works-text">
         <h3 class="works-title">Icon Font</h3>
         <ul class="works-info">
@@ -604,8 +868,9 @@ function showExportFile(names, hide) {
             <li class="info-programme">Node.js</li>
         </ul>
         <div class="works-description">
-            <p>重新设计 ElementUI 框架的图标字体。</p>
-            <p>实现了由 Sketch 直接生成图标字体，解决该框架的图标字体没有配套的设计工具，不方便扩展和修改的问题。</p>
+            <p>为内部使用 ElementUI 框架的后台项目，我重新设计了图标字体和生成字体工具，解决该框架的图标字体没有配套的设计工具，不方便扩展和修改低效的问题。</p>
+            <p>设计师会通过类似 iconfont.cn 网站制作图标字体，在不同工具间反复切换导致工作效率非常低，而生成字体的脚本对很多设计师而言门槛较高。在这个负责项目的过程中，我实现了直接从 Sketch 中导出图标字体。</p>
+            <p><a class="read-more" href="https://ashung.github.io/posts/create-font-in-sketch.html">使用 Sketch 创建字体</a></p>
         </div>
     </div>
     <div class="works-content">
@@ -623,11 +888,12 @@ function showExportFile(names, hide) {
         </ul>
         <div class="works-description">
             <p>针对 360OS 系统主题机制，为解决客户主题定制需求，而开发的系统主题相关工具。</p>
-            <p>由多个命令行工具组成的，考虑到操作效率以及服务端使用，而采用命令行工具方式。功能包括制作系统主题包，壁纸自动裁切，文件批量命名等等。</p>
+            <p>由多个命令行工具组成的，考虑到操作效率以及服务端使用，我将工具设计成命令行工具。功能包括制作系统主题包，壁纸自动裁切，文件批量命名等等。</p>
+            <p>观看视频了解工具如何运作。</p>
         </div>
     </div>
     <div class="works-content">
-        <video id="theme-tools-video" class="lazy" muted width="600" data-src="images/web/theme_cli_tools.mp4">
+        <video id="theme-tools-video" class="lazy" controls muted width="600" data-src="images/web/theme_cli_tools.mp4">
             <source type="video/mp4" data-src="images/web/theme_cli_tools.mp4"/>
         </video>
     </div>
@@ -638,7 +904,7 @@ const sectionWeb1 = document.getElementById('section-web-1');
 const sceneWeb1 = new ScrollMagic.Scene({triggerElement: '#section-web-1', duration: sectionWeb1.offsetHeight})
     .addTo(controller)
     // .addIndicators()
-    .on('enter leave', (e) => {
+    .on('enter leave', e => {
         if (e.type === 'enter') {
             let playPromise = themeToolsVideo.play();
             if (playPromise !== undefined) {
@@ -666,7 +932,7 @@ const sceneWeb1 = new ScrollMagic.Scene({triggerElement: '#section-web-1', durat
         </ul>
         <div class="works-description">
             <p>针对 360OS 系统主题机制，使用 Electron 开发的桌面端主题工具应用。</p>
-            <p>虽然命令工具在效率上更具优势，但对于一般设计师门槛较高，桌面端应用解决了这种门槛，让操作更直观。</p>
+            <p>虽然命令行工具在效率上更具优势，但对于一般设计师门槛较高，桌面端应用解决了这种问题，让操作更直观，而且可以把设计师觉得繁琐工作都集成到桌面端应用内。</p>
         </div>
     </div>
     <div class="works-content">
@@ -689,7 +955,7 @@ const sectionWeb2 = document.getElementById('section-web-2');
 const sceneWeb2 = new ScrollMagic.Scene({triggerElement: '#section-web-2', duration: sectionWeb2.offsetHeight})
     .addTo(controller)
     // .addIndicators()
-    .on('enter leave', (e) => {
+    .on('enter leave', e => {
         if (e.type === 'enter') {
             slideShow = setInterval(() => {
                 Array.from(slideItems).forEach(item => {
@@ -712,8 +978,19 @@ const sceneWeb2 = new ScrollMagic.Scene({triggerElement: '#section-web-2', durat
             <li class="info-programme">Node.js</li>
         </ul>
         <div class="works-description">
-            <p><a href="https://github.com/Ashung/svg2vectordrawable">svg2vectordrawable</a> 
-                是一项开源的将 SVG 转 Android Vector Drawable 的 Node.js 模块和命令行工具。在同类的第三方工具中，兼容更多特性、支持文件优化和批量转换。</p>
+            <p>用于将 SVG 转为 Android Vector Drawable 的 Node.js 模块和命令行工具。</p>
+            <p>工具创建之初并没有较好同类的工具，为了解决公司内部设计师转 Android 矢量资源的问题，而建立这个项目。它引入了 SVGO 用于优化代码，生成的文件精简。目前 svg2vectordrawable 已经过多次版本迭代，在 github 社区也获得不少帮助，成为同类中最受喜爱的，兼容更多特性、支持文件优化和批量转换。</p>
+            <p>Sketch 和 Figma 上的导出 Android Vector Drawable 的插件，就是直接使用了这个库。</p>
+            <div class="npm-download-chart">
+                <div id="npm-chart-day">最近一周下载量</div>
+                <div id="npm-chart-downloads">000</div>
+                <svg id="npm-chart" width="300" height="120" viewBox="0 0 300 120" xmlns="http://www.w3.org/2000/svg">
+                    <path id="npm-chart-fill" fill="rgba(137, 86, 255, .2)"></path>
+                    <path id="npm-chart-line" fill="none" stroke-width="4" stroke="rgb(137, 86, 255)"></path>
+                    <line id="npm-chart-cursor" x1="-10" y1="0" x2="-10" y2="120" stroke="rgb(137, 86, 255)" stroke-width="4"></line>
+                </svg>
+            </div>
+            <p><a class="read-more" href="https://www.npmjs.com/package/svg2vectordrawable">访问 npm 主页</a></p>
         </div>
     </div>
     <div class="works-content">
@@ -734,21 +1011,274 @@ const s2vCode = document.getElementById('s2v-code');
 const sceneS2V = new ScrollMagic.Scene({triggerElement: '#section-web-3', duration: s2vDemo.offsetHeight})
     .addTo(controller)
     // .addIndicators()
-    .on('enter',  (e) => {
+    .on('enter',  e => {
         if (s2vCodePlaying === false) {
             s2vCodePlaying = true;
             const speed = 200;
-            const code = 's2v -i input.svg -o output.xml\n$ ';
+            const code = 'npm i svg2vectordrawable\n$ s2v -i input.svg -o output.xml\n$ ';
             let delay = 0;
             setTimeout(() => typeWriter(s2vCode, code, speed), delay);
             delay += code.length * speed + speed;
             setTimeout(() => s2vCodePlaying = false, delay);
         }
     });
+
+// 半年下载量统计 26*7=182 天
+const chart = document.getElementById('npm-chart');
+const chartLine = document.getElementById('npm-chart-line');
+const chartFill = document.getElementById('npm-chart-fill');
+const chartCursor = document.getElementById('npm-chart-cursor');
+const chartDownloads = document.getElementById('npm-chart-downloads');
+const chartDay = document.getElementById('npm-chart-day');
+const endDate = getDateString(-1);
+const startDate = getDateString(-182);
+const npmDownloadApiUrl = `https://api.npmjs.org/downloads/range/${startDate}:${endDate}/svg2vectordrawable`;
+
+fetch(npmDownloadApiUrl).then(response => {
+    if (response.ok) {
+        response.json().then(json => {
+            let downloads = [];
+            let counts = [];
+            for (let i = 0; i < json.downloads.length; i += 7) {
+                let sumWeek = json.downloads.slice(i, i+7).reduce((a, b) => a + b.downloads, 0);
+                counts.push(sumWeek);
+                downloads.push({downloads: sumWeek, day: `${json.downloads[i]['day']} - ${json.downloads[i+6]['day']}`});
+            }
+            let max = Math.max(...counts);
+            let pathData = counts.map((count, i) => {
+                return `${i === 0 ? 'M' : 'L'}${(300/downloads.length)*i},${(max-count)*100/max+10}`;
+            }).join('');
+            chartLine.setAttribute('d', pathData);
+            chartFill.setAttribute('d', pathData + 'V120 L0,120 z');
+            chartDownloads.innerText = downloads[downloads.length - 1].downloads;
+            chart.addEventListener('mousemove', e => {
+                let index = Math.ceil(downloads.length * (e.clientX - chart.getBoundingClientRect().left) / 300);
+                if (index < downloads.length) {
+                    chartCursor.setAttribute('x1', 300 * index / downloads.length);
+                    chartCursor.setAttribute('x2', 300 * index / downloads.length);
+                    chartDay.innerText = downloads[index].day;
+                    chartDownloads.innerText = downloads[index].downloads;
+                }
+            });
+            chart.addEventListener('mouseout', e => {
+                chartCursor.setAttribute('x1', '-10');
+                chartCursor.setAttribute('x2', '-10');
+                chartDay.innerText = '最近一周下载量';
+                chartDownloads.innerText = downloads[downloads.length - 1].downloads;
+            });
+        });
+    }
+});
+
+function getDateString(offset) {
+    let today = new Date();
+    today.setTime(today.getTime() + 24 * 3600 * 1000 * offset - (today.getTimezoneOffset() * 60 * 1000));
+    return today.toISOString().substr(0, 10);
+}
 </script>
 
 <div id="sketch"></div>
-<section id="section-sketch-1" class="works dark split">
+<section id="section-sketch-1" class="works center">
+    <div class="works-text">
+        <div class="works-logo">
+            <svg width="609" height="60" viewBox="0 0 609 60" xmlns="http://www.w3.org/2000/svg">
+                <path fill="none" stroke="#FDB300" stroke-width="8.57" d="M19.46 4.29L6 21.11l32.83 32.83 32.83-32.83L58.2 4.29z"/>
+                <path d="M103.11 0h25.72v60h-8.57V34.29h-8.57V60h-8.58V0zm17.15 8.57h-8.57v17.44h8.57V8.57zM154.54 0h8.57v60H137.4V0h8.57v51.43h8.57V0zm17.15 0h25.71v8.57h-8.57V60h-8.57V8.57h-8.57V0zm60 60h-25.72V0h25.72v60zm-8.58-8.57V8.57h-8.57v42.86h8.57zm34.29-34.14s-8.57-8.76-8.57-8.72V60h-8.57V0h12.85l8.58 8.57 8.57-8.42h12.85V60h-8.57V8.57l-8.57 8.72V60h-8.57V17.3zM291.69 0h25.71v60h-8.57V34.29h-8.57V60h-8.57V0zm17.14 8.57h-8.57v17.44l8.57-0.3V8.57zM325.97 0h25.72v8.57h-8.58V60h-8.57V8.57h-8.57V0zm34.29 0h25.71v8.57h-17.14v17.44l17.14-0.3v8.58h-17.14v17.14h17.14V60h-25.71V0zm222.85 0h8.58v25.71h8.57V0h8.57v60h-8.57V34.29h-8.57V60h-8.58V0zm-8.62 60h-25.66V0h25.71l-0.05 17.3h-8.52V8.56h-8.57v42.86h8.57v-8.57h8.57L574.5 60zM514.54 0h25.72v8.57h-8.57V60h-8.58V8.57h-8.57V0zm-34.28 0.15L505.97 0v8.57h-17.14v17.14h17.14v8.58h-17.14v17.14h17.14V60h-25.71V0.15zM445.97 0h8.57v25.71l8.57-8.42V0h8.58v21.43L463.1 30l8.58 8.57V60h-8.58V42.86l-8.57-8.57V60h-8.57V0zM411.7 42.86h8.57v8.57h8.57V38.57L411.7 26.01V0h25.71v17.3h-8.57V8.56h-8.57v12.86l17.14 12.86V60H411.7V42.86z" fill="#000000"/>
+            </svg>
+        </div>
+        <h3 class="works-title">Automate Sketch</h3>
+        <ul class="works-info">
+            <li class="info-date">2015/09 - 2020</li>
+            <li class="info-programme">JavaScript, CocoaScript</li>
+        </ul>
+        <div class="works-description">
+            <p><a href="https://github.com/Ashung/Automate-Sketch">Automate</a> 是一个拥有很多实用功能的 Sketch 插件。它内置很多增强功能，和很多针对团队协作的组件、样式、库的功能。</p>
+            <p>截至目前已有近 240 多个功能，几乎囊括了 Sketch 各个方面的高效操作。许多国内外知名公司的设计师都是它的深度用户，也成为很多设计师的推荐插件。</p>
+            <p><a class="read-more" href="https://github.com/Ashung/Automate-Sketch">下载插件</a></p>
+        </div>
+    </div>
+    <div class="works-content">
+        <ul class="sketch-plugin-stats flex-row">
+            <li><strong>754</strong>GitHub Star</li>
+            <li><strong>248</strong>功能</li>
+            <li><strong>1K+</strong>日平均用户</li>
+            <li><strong>2K+</strong>日平均会话</li>
+            <li><strong>∞</strong>节约时间</li>
+        </ul>
+    </div>
+    <div class="works-content">
+        <img alt="sketch-plugin" width="600" height="400" src="images/sketch/automate_low.jpg" data-srcset="images/sketch/automate_1x.jpg 1x, images/sketch/automate_2x.jpg 2x">
+    </div>
+    <div class="works-text">
+        <h3 class="works-title works-title-small">他们在使用 Automate</h3>
+    </div>
+    <div class="works-content plugin-logos">
+        <img alt="sketch" width="644" height="40" src="images/sketch/logos_low.jpg" data-srcset="images/sketch/logos_1x.jpg 1x, images/sketch/logos_2x.jpg 2x">
+    </div>
+    <div class="works-text">
+        <h3 class="works-title works-title-small">设计师的评价</h3>
+    </div>
+    <div class="works-content plugin-quote">
+        <blockquote id="quote-text"></blockquote>
+        <span id="quote-author"></span>
+    </div>
+</section>
+<script>
+const comments = [
+    {
+        name: 'Louis',
+        text: 'Why did I not find your Automate plugin earlier? It saved me many hours of work. Thank you for this brilliant plugin!'
+    },
+    {
+        name: 'Matthew',
+        text: 'Couldn\'t use sketch without your Automate plugin! Thanks for all your hard work.'
+    },
+    {
+        name: 'Jonnotie',
+        text: 'Best plugin ever. Saved me a ton of time.'
+    },
+    {
+        name: 'Raymond',
+        text: 'Automate is life changing! Thanks for the awesome work.'
+    },
+    {
+        name: 'Lin Kevin',
+        text: 'Thank you for all the Sketch plugin features you\'ve implemented! Keep up the good work!'
+    },
+    {
+        name: 'Carlin Jason',
+        text: 'Automate is incredible!'
+    }
+];
+let randomComment; // = 
+
+const sectionSketch1 = document.getElementById('section-sketch-1');
+const sceneSketch1 = new ScrollMagic.Scene({triggerElement: '#section-sketch-1', duration: sectionSketch1.offsetHeight})
+    .addTo(controller)
+    // .addIndicators()
+    .on('enter leave', e => {
+        if (e.type === 'enter') {
+            changeComment(comments)
+            randomComment = setInterval(() => changeComment(comments), 4000);
+        } else {
+            clearInterval(randomComment);
+        }
+    });
+
+function changeComment(comments) {
+    const quoteText = document.getElementById('quote-text');
+    const quoteAuthor = document.getElementById('quote-author');
+    quoteText.style.opacity = '1';
+    quoteAuthor.style.opacity = '1';
+    let comment = comments[Math.floor(Math.random() * comments.length)];
+    quoteText.innerText = comment.text;
+    quoteAuthor.innerText = comment.name;
+    setTimeout(() => {
+        quoteText.style.opacity = '0';
+        quoteAuthor.style.opacity = '0';
+    }, 3000);
+}
+</script>
+
+<section id="section-sketch-2" class="works center">
+    <div class="works-text">
+        <div class="works-logo">
+            <img width="192" height="192" src="images/sketch/android_res_export_logo_2x.png" alt="">
+        </div>
+        <h3 class="works-title">Android Res Export</h3>
+        <ul class="works-info">
+            <li class="info-date">2016/07 - 2020</li>
+            <li class="info-programme">JavaScript, CocoaScript, HTML, CSS</li>
+        </ul>
+        <div class="works-description">
+            <p><a href="https://github.com/Ashung/Android_Res_Export">Android Res Export</a> 是为了解决公司的设计团队工具转到 Sketch 之后，在输出 Android 资源上遇到的问题，经过几次迭代更新，目前已经支持几乎全部的 Android 资源格式，包括多种尺寸的 PNG / WebP 位图、多种尺寸的点九图、响应式应用图标、Vector Drawable 矢量资源、点九图预览、形状和色彩代码等等。</p>
+            <p>Android Res Export 是目前国内很多手机厂商设计团队和 Android App 设计师的必备插件。</p>
+            <p><a class="read-more" href="https://github.com/Ashung/Android_Res_Export">下载插件</a></p>
+        </div>
+    </div>
+    <div class="works-content">
+        <ul class="plugin-features flex-wrap flex-center">
+            <li>
+                <img width="64" height="64" src="images/sketch/android_png_2x.png" alt="">
+                <p>PNG / WebP 支持</p>
+            </li>
+            <li>
+                <img width="64" height="64" src="images/sketch/android_ninepatch_2x.png" alt="">
+                <p>Nine-patch 支持<p>
+            </li>
+            <li>
+                <img width="64" height="64" src="images/sketch/android_vector_2x.png" alt="">
+                <p>Vector Drawable 支持</p>
+            </li>
+            <li>
+                <img width="64" height="64" src="images/sketch/android_icon_2x.png" alt="">
+                <p>Adaptive Icon 支持</p>
+            </li>
+            <li>
+                <img width="64" height="64" src="images/sketch/android_xml_2x.png" alt="">
+                <p>Shape XML 支持</p>
+            </li>
+            <li>
+                <img width="64" height="64" src="images/sketch/android_color_2x.png" alt="">
+                <p>Color Resource 支持</p>
+            </li>
+        </ul>
+    </div>
+    <div class="works-content">
+        <div id="slide-sketch-plugin" class="slide sketch-plugin">
+            <img alt="" width="600" height="400" src="images/sketch/android_res_export_1_low.jpg" data-srcset="images/sketch/android_res_export_1_1x.jpg 1x, images/sketch/android_res_export_1_2x.jpg 2x">
+            <img alt="" width="600" height="400" src="images/sketch/android_res_export_2_low.jpg" data-srcset="images/sketch/android_res_export_2_1x.jpg 1x, images/sketch/android_res_export_2_2x.jpg 2x">
+            <img alt="" width="600" height="400" src="images/sketch/android_res_export_3_low.jpg" data-srcset="images/sketch/android_res_export_3_1x.jpg 1x, images/sketch/android_res_export_3_2x.jpg 2x">
+            <img alt="" width="600" height="400" src="images/sketch/android_res_export_4_low.jpg" data-srcset="images/sketch/android_res_export_4_1x.jpg 1x, images/sketch/android_res_export_4_2x.jpg 2x">
+        </div>
+    </div>
+</section>
+<script>
+const slide2 = document.getElementById('slide-sketch-plugin');
+const slideItems2 = slide2.getElementsByTagName('img');
+const count2 = slideItems2.length;
+let current2 = 0;
+let slideShow2;
+const sectionSketch2 = document.getElementById('section-sketch-2');
+const sceneSketch2 = new ScrollMagic.Scene({triggerElement: '#section-sketch-2', duration: sectionSketch2.offsetHeight})
+    .addTo(controller)
+    // .addIndicators()
+    .on('enter leave', e => {
+        if (e.type === 'enter') {
+            slideShow2 = setInterval(() => {
+                Array.from(slideItems2).forEach(item => {
+                    item.style.opacity = '0';
+                });
+                slideItems2[current2].style.opacity = '1';
+                current2 = (current2 + 1) % count2;
+            }, 2000);
+        } else {
+            clearInterval(slideShow2);
+        }
+    });
+</script>
+
+<section id="section-sketch-3" class="works split">
+    <div class="works-text">
+        <h3 class="works-title">Import Colors</h3>
+        <ul class="works-info">
+            <li class="info-date">2019/02 - 2020</li>
+            <li class="info-programme">JavaScript</li>
+        </ul>
+        <div class="works-description">
+            <p>设计师可以在 Sketch 中直接导入 Photoshop，Illustrator 等软件的色板文件，也能通过纯文本格式共享色板。</p>
+            <p>通过将色板导入为库的功能，解决 Sketch 没有色彩面板的痛点。</p>
+            <p>
+                <a class="read-more" href="https://github.com/Ashung/import-colors-sketch">安装插件</a>
+            </p>
+        </div>
+    </div>
+    <div class="works-content">
+        <img alt="sketch-plugin" width="600" height="400" src="images/sketch/import_colors_low.jpg" data-srcset="images/sketch/import_colors_1x.jpg 1x, images/sketch/import_colors_2x.jpg 2x">
+    </div>
+</section>
+
+<section id="section-sketch-4" class="works dark split">
     <div class="works-text">
         <h3 class="works-title">主题预览插件</h3>
         <ul class="works-info">
@@ -765,58 +1295,6 @@ const sceneS2V = new ScrollMagic.Scene({triggerElement: '#section-web-3', durati
     </div>
 </section>
 
-<section id="section-sketch-2" class="works split">
-    <div class="works-text">
-        <h3 class="works-title">Automate Sketch</h3>
-        <ul class="works-info">
-            <li class="info-date">2015/09 - 2020</li>
-            <li class="info-programme">JavaScript, CocoaScript</li>
-        </ul>
-        <div class="works-description">
-            <p><a href="https://github.com/Ashung/Automate-Sketch">Automate</a> 是一个拥有很多实用功能的 Sketch 插件。它内置很多增强功能，和很多针对团队协作的组件、样式、库的功能。</p>
-            <p>截至目前已有近 240 多个功能，几乎囊括了 Sketch 各个方面的高效操作。许多国内外知名公司的设计师都是它的深度用户，也成为很多设计师的推荐插件。</p>
-        </div>
-    </div>
-    <div class="works-content">
-        <img alt="sketch-plugin" width="600" height="400" src="images/sketch/automate_low.jpg" data-srcset="images/sketch/automate_1x.jpg 1x, images/sketch/automate_2x.jpg 2x">
-    </div>
-</section>
-
-<section id="section-sketch-3" class="works split">
-    <div class="works-text">
-        <h3 class="works-title">Android Res Export</h3>
-        <ul class="works-info">
-            <li class="info-date">2016/07 - 2020</li>
-            <li class="info-programme">JavaScript, CocoaScript, HTML, CSS</li>
-        </ul>
-        <div class="works-description">
-            <p>我在很早便接触 Sketch 和 Sketch 插件开发，发布过多个开源插件，例如 <a href="https://github.com/Ashung/Sketch_Swatches">Swatches</a> 和 <a href="https://github.com/Ashung/HSL_Color_Picker">HSL Color Picker</a>，这两个项目因 Sketch 的升级引入相同功能而停止维护。</p>
-            <p><a href="https://github.com/Ashung/Android_Res_Export">Android Res Export</a> 是为了解决公司的设计团队工具转到 Sketch 之后，在输出 Android 资源上遇到的问题，经过几次迭代更新，目前已经支持几乎全部的 Android 资源格式，包括多种尺寸的 PNG / WebP 位图、多种尺寸的点九图、响应式应用图标、Vector Drawable 矢量资源、点九图预览、形状和色彩代码等等。</p>
-            <p>Android Res Export 是目前国内很多手机厂商设计团队和 Android App 设计师的必备插件。</p>
-        </div>
-    </div>
-    <div class="works-content">
-        <img alt="sketch-plugin" width="600" height="400" src="images/sketch/android_res_export_low.jpg" data-srcset="images/sketch/android_res_export_1x.jpg 1x, images/sketch/android_res_export_2x.jpg 2x">
-    </div>
-</section>
-
-<section id="section-sketch-4" class="works split">
-    <div class="works-text">
-        <h3 class="works-title">Import Colors</h3>
-        <ul class="works-info">
-            <li class="info-date">2019/02 - 2020</li>
-            <li class="info-programme">JavaScript</li>
-        </ul>
-        <div class="works-description">
-            <p><a href="https://github.com/Ashung/import-colors-sketch">Import Colors</a> 可以帮助设计师直接导入 Photoshop，Illustrator 等软件的色板文件，也能通过纯文本格式共享色板。</p>
-            <p>通过将色板导入为库的功能，轻松解决 Sketch 没有类似 Photoshop 色彩面板的痛点。</p>
-        </div>
-    </div>
-    <div class="works-content">
-        <img alt="sketch-plugin" width="600" height="400" src="images/sketch/import_colors_low.jpg" data-srcset="images/sketch/import_colors_1x.jpg 1x, images/sketch/import_colors_2x.jpg 2x">
-    </div>
-</section>
-
 <div id="figma"></div>
 <section id="section-figma-1" class="works split">
     <div class="works-text">
@@ -826,8 +1304,9 @@ const sceneS2V = new ScrollMagic.Scene({triggerElement: '#section-web-3', durati
             <li class="info-programme">TypeScript, HTML, CSS</li>
         </ul>
         <div class="works-description">
-            <p><a href="https://www.figma.com/c/plugin/735452896889481850/Android-Resources-Export">Android Resources Export</a> 是 Figma 插件内测期间，首批上线的插件之一，累计至今已有 8.4k 安装用户。</p>
+            <p>Figma 插件内测期间，首批上线的插件之一，累计至今已有 9.2k 安装用户。</p>
             <p>插件用于导出 PNG，点九资源，响应式图标等资源，解决了 Figma 无法将多种尺寸资源导出到 Android 特定的文件结构，以及处理点九资源多种尺寸的问题。</p>
+            <p><a class="read-more read-more-ghost" href="https://www.figma.com/c/plugin/735452896889481850/Android-Resources-Export">查看插件主页</a></p>
         </div>
     </div>
     <div class="works-content">
@@ -843,7 +1322,8 @@ const sceneS2V = new ScrollMagic.Scene({triggerElement: '#section-web-3', durati
             <li class="info-programme">JavaScript, HTML, SCSS</li>
         </ul>
         <div class="works-description">
-            <p><a href="https://www.figma.com/community/plugin/735711462872799891/MixFonts">MixFonts</a> 用于中西文混排，为文本图层中的中文和西文指定不同的字体。可以保存多种预设组合。</p>
+            <p>用于中西文混排，为文本图层中的中文和西文指定不同的字体。可以保存多种预设组合。</p>
+            <p><a class="read-more read-more-ghost" href="https://www.figma.com/community/plugin/735711462872799891/MixFonts">查看插件主页</a></p>
         </div>
     </div>
     <div class="works-content">
@@ -859,7 +1339,8 @@ const sceneS2V = new ScrollMagic.Scene({triggerElement: '#section-web-3', durati
             <li class="info-programme">TypeScript, JavaScript, HTML, CSS</li>
         </ul>
         <div class="works-description">
-            <p><a href="https://www.figma.com/community/plugin/759249283654441170/Data-From-Local">Data from Local</a> 是一款使用本地的文本和图片的数据填充插件。</p>
+            <p>使用本地的文本和图片的数据填充插件，将文本文件或多张图片拖放到插件界面就可以为选中图层快速填充内容。</p>
+            <p><a class="read-more read-more-ghost" href="https://www.figma.com/community/plugin/759249283654441170/Data-From-Local">查看插件主页</a></p>
         </div>
     </div>
     <div class="works-content">
@@ -875,8 +1356,9 @@ const sceneS2V = new ScrollMagic.Scene({triggerElement: '#section-web-3', durati
             <li class="info-programme">TypeScript, HTML, SCSS</li>
         </ul>
         <div class="works-description">
-            <p>Frame 尺寸修改插件，<a href="https://www.figma.com/community/plugin/807879270674045537/Frame-Resizer">Frame Resizer</a> 解决了 Figma 默认没有按方向调整尺寸的功能，以及无法在不修改内部图层约束的情况快速调整至特定尺寸而不影响内部图层。</p>
+            <p>Frame 尺寸修改插件，解决了 Figma 默认没有按方向调整尺寸的功能，以及无法在不修改内部图层约束的情况快速调整至特定尺寸而不影响内部图层。</p>
             <p>其中尺寸预设功能，可以快速批量修改 Frame 尺寸。</p>
+            <p><a class="read-more read-more-ghost" href="https://www.figma.com/community/plugin/807879270674045537/Frame-Resizer">查看插件主页</a></p>
         </div>
     </div>
     <div class="works-content">
@@ -892,7 +1374,8 @@ const sceneS2V = new ScrollMagic.Scene({triggerElement: '#section-web-3', durati
             <li class="info-programme">TypeScript, JavaScript, HTML, CSS</li>
         </ul>
         <div class="works-description">
-            <p><a href="https://www.figma.com/community/plugin/797369763563831541/Android-Vector-Drawable">Android Vector Drawable</a> 用于实时查看选中图层的 Vector Drawable 代码，以及复制和导出代码功能。</p>
+            <p>实时查看选中图层的 Vector Drawable 代码，以及复制和导出代码功能。</p>
+            <p><a class="read-more read-more-ghost" href="https://www.figma.com/community/plugin/797369763563831541/Android-Vector-Drawable">Android Vector Drawable</a></p>
         </div>
     </div>
     <div class="works-content">
@@ -900,35 +1383,12 @@ const sceneS2V = new ScrollMagic.Scene({triggerElement: '#section-web-3', durati
     </div>
 </section>
 
-<section id="about" class="about">
-    <h3>关于</h3>
-    <div>
-        <p>
-            以上为我近期工作中的部分作品，以及目前仍在维护的项目，若要查看更多设计作品及开源项目，
-            可访问我的 <a href="https://www.behance.net/ashung">Behance</a> 和 
-            <a href="https://github.com/Ashung">GitHub</a>。
-        </p>
-        <p>
-            本人十年以上 UI 设计工作经历，拥有扎实的设计功底外，同时也熟悉交互设计和前端开发，
-            目前于主流设计软件 Sketch 与 Figma 的插件开发领域有一定影响，
-            帮助了许多设计师更高效的使用设计软件，解决各种复杂繁琐的问题，以及减少与开发沟通合作的障碍。
-        </p>
-        <p>
-            如果您觉得我符合贵司的职位要求，可以通过以下方式联系我。
-        </p>
-        <ul class="contact">
-            <li>电话: <a href="tel://13666092891">136 6609 2891</a></li>
-            <li>微信: <a href="javascript:void(0)">ashung</a></li>
-            <li>邮件: <a href="mailto://ashung.hung@foxmail.com">ashung.hung@foxmail.com</a></li>
-            <li>简历: <a href="resume.html">HTML 格式</a> <a href="resume.pdf">PDF 格式 (542 KB)</a></li>
-        </ul>
-    </div>
-</section>
-
 <script>
+const pageNavWrap = document.getElementsByTagName('nav')[0];
 const pageNav = document.getElementById('page-nav');
 const navUnderLine = document.getElementById('nav-underline');
 const pageNavItems = pageNav.getElementsByTagName('a');
+const pageNavToggle = document.getElementById('page-nav-toggle');
 let activeNavIndex = 0;
 window.onload = () => {
     if (document.location.hash) {
@@ -939,22 +1399,41 @@ window.onload = () => {
     navUnderLine.style.left = pageNavItems[activeNavIndex].offsetLeft + 'px';
     navUnderLine.style.width = pageNavItems[activeNavIndex].offsetWidth + 'px';
     for (let i = 0; i < pageNavItems.length; i++) {
-        pageNavItems[i].addEventListener('mouseover', (event) => {
+        pageNavItems[i].addEventListener('mouseover', event => {
             navUnderLine.style.left = pageNavItems[i].offsetLeft + 'px';
             navUnderLine.style.width = pageNavItems[i].offsetWidth + 'px';
         });
-        pageNavItems[i].addEventListener('mouseout', (event) => {
+        pageNavItems[i].addEventListener('mouseout', event => {
             navUnderLine.style.left = pageNavItems[activeNavIndex].offsetLeft + 'px';
             navUnderLine.style.width = pageNavItems[activeNavIndex].offsetWidth + 'px';
         });
-        pageNavItems[i].addEventListener('click', (event) => {
+        pageNavItems[i].addEventListener('click', event => {
             activeNavIndex = i;
         });
     }
+    pageNavToggle.addEventListener('click', event => {
+        if (!pageNavToggle.classList.contains('page-nav-toggle-close')) {
+            pageNavToggle.classList.add('page-nav-toggle-close');
+            pageNavWrap.className = 'show-nav';
+        } else {
+            pageNavToggle.classList.remove('page-nav-toggle-close');
+            pageNavWrap.className = '';
+        }
+        return false;
+    });
+    if (window.innerWidth <= 480) {
+        for (let item of pageNavItems) {
+            item.addEventListener('click', event => {
+                pageNavWrap.className = '';
+                pageNavToggle.classList.remove('page-nav-toggle-close');
+            });
+        }
+    }
 }
 
-window.addEventListener('resize', (event) => {
+window.addEventListener('resize', event => {
     navUnderLine.style.left = pageNavItems[activeNavIndex].offsetLeft + 'px';
+    navUnderLine.style.width = pageNavItems[activeNavIndex].offsetWidth + 'px';
 });
 
 const pageNavIds = Array.from(pageNavItems).map(item => item.hash);
@@ -962,7 +1441,7 @@ pageNavIds.forEach((item, i) => {
     let scene = new ScrollMagic.Scene({triggerElement: item})
         .addTo(controller)
         // .addIndicators()
-        .on('enter leave', function (e) {
+        .on('enter leave', e => {
             if (e.type === 'enter') {
                 activeNavIndex = i;
                 navUnderLine.style.left = pageNavItems[activeNavIndex].offsetLeft + 'px';
@@ -974,6 +1453,37 @@ pageNavIds.forEach((item, i) => {
             }
         });
 });
+
+['.info-date', '.info-tools', '.info-programme'].forEach(className => {
+    const elements = document.querySelectorAll(className);
+    for (let element of elements) {
+        if (className === '.info-date') {
+            element.setAttribute('title', `创建于 ${element.innerText}。`);
+        }
+        if (className === '.info-tools') {
+            element.setAttribute('title', `使用 ${element.innerText} 设计。`);
+        }
+        if (className === '.info-programme') {
+            element.setAttribute('title', `使用 ${element.innerText} 开发。`);
+        }
+        element.style.cursor = 'help';
+    }
+});
+
+const wechatButton = document.getElementById('wechat');
+let wechatQrCode;
+wechatButton.addEventListener('mouseover', e => {
+    wechatQrCode = document.createElement('img');
+    wechatQrCode.src = 'images/wechat.jpg';
+    wechatQrCode.className = 'wechat-qrcode';
+    wechatQrCode.style.left = e.clientX + 'px';
+    wechatQrCode.style.top = (wechatButton.offsetTop + wechatButton.offsetHeight) + 'px';
+    document.body.appendChild(wechatQrCode);
+});
+wechatButton.addEventListener('mouseout', e => {
+    wechatQrCode.remove();
+});
+
 </script>
 
 <script src="assets/lazyload.min.js"></script>
