@@ -957,10 +957,17 @@ nav a:link, nav:visited {
     display: block;
     margin: auto;
 }
+#about {
+    padding: 96px 0;
+    background-size: 1000px 500px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
 .about {
-    padding: 120px 24px;
+    padding: 24px;
     margin: 0 auto;
     max-width: 600px;
+    background: rgb(255, 255, 255, 0.8);
 }
 .about h3 {
     font-family: var(--caption-font);

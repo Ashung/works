@@ -15,6 +15,7 @@ gtag('config', 'UA-68708846-2');
 <link rel="stylesheet" href="assets/style.css">
 <script src="assets/velocity.min.js"></script>
 <script src="assets/ScrollMagic.min.js"></script>
+<script src="assets/wordcloud.js"></script>
 <!-- <script src="assets/debug.addIndicators.min.js"></script> -->
 <script>
 const controller = new ScrollMagic.Controller();
@@ -39,9 +40,9 @@ const controller = new ScrollMagic.Controller();
     <div id="nav-underline"></div>
 </nav>
 
-<section id="about" class="about">
-    <h3>关于</h3>
-    <div>
+<section id="about" class="about-wrap">
+    <div class="about">
+        <h3>关于</h3>
         <p>
             本人有十年以上 UI 设计工作经历，多年互联网和手机公司工作经验，
             熟悉 Android、iOS 等平台界面设计规范，除了扎实的设计功底外，
@@ -66,7 +67,90 @@ const controller = new ScrollMagic.Controller();
             <li>简历: <a href="resume.html">在线版</a> <a href="resume.pdf">PDF 版 (542 KB)</a></li>
         </ul>
     </div>
+    <canvas id="word-cloud" width="2000" height="1000" style="display:none;"></canvas>
 </section>
+<script>
+const listString = '\
+Sketch 10\n\
+Figma 9\n\
+Photoshop 9\n\
+Illustrator 7\n\
+Affinity Designer 2\n\
+Teamwork 3\n\
+Communication 4\n\
+Collaborate 5\n\
+Responsive Design 4\n\
+Design System 5\n\
+DesignOps 4\n\
+Infographics 1\n\
+Typography 4\n\
+Calligraphy 2\n\
+Animation 2\n\
+Icon 6\n\
+Flat 4\n\
+Font 3\n\
+Website 4\n\
+App 5\n\
+Minimal 2\n\
+Icon Design 9\n\
+Material Design 4\n\
+UI 8\n\
+UX 7\n\
+Web 8\n\
+Adobe XD 4\n\
+Android Theme 6\n\
+Sketch Plugin 2\n\
+Figma Plugin 2\n\
+Git 6\n\
+Bash 4\n\
+Shell 5\n\
+CSS 8\n\
+Sass 7\n\
+Scss 7\n\
+Less 4\n\
+HTML 8\n\
+Markdown 4\n\
+JavaScript 7\n\
+Python 1\n\
+Node.js 6\n\
+Gulp 5\n\
+Webpack 2\n\
+npm 1\n\
+Vue.js 2\n\
+React 2\n\
+Bootstrap 2\n\
+TypeScript 5';
+let list = listString.split('\n').map(item => {
+    let match = item.match(/(.*)\s+(\d+)$/);
+    return [match[1], parseInt(match[2])];
+}).reverse();
+const about = document.getElementById('about');
+const wordCloudCanvas = document.getElementById('word-cloud');
+WordCloud(wordCloudCanvas, {
+    list: list,
+    color: (word, weight) => {
+        return '#' + Math.round(220 - (220 - 150) * (weight - 1) / 9).toString(16).repeat(3);
+    },
+    fontFamily: '"PT Serif", Georgia, "Times New Roman", Times, serif',
+    gridSize: 20,
+    minRotation: 0,
+    maxRotation: 0,
+    origin: [1000, 500],
+    weightFactor: size => (120 - 30) * (size - 1) / 9 + 30,
+    shrinkToFit: true,
+    wait: 50
+});
+wordCloudCanvas.addEventListener('wordclouddrawn', e => {
+    about.style.backgroundImage = 'url(' + wordCloudCanvas.toDataURL('image/png') + ')';
+});
+about.addEventListener('mousemove', e => {
+    let x = (50 - -50) * e.clientX / window.innerWidth + -50;
+    let y = (10 - -10) * e.clientY / window.innerHeight + -10;
+    about.style.backgroundPositionX = 'calc(50% - ' + x + 'px)';
+    about.style.backgroundPositionY = 'calc(50% - ' + y + 'px)';
+    console.log(e.clientX, e.clientY)
+});
+</script>
 
 <div id="app"></div>
 <section id="section-app-1" class="works center">
