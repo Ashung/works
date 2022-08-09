@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width" />
-		%sveltekit.head%
-	</head>
-	<body>
-		<div>%sveltekit.body%</div>
-	</body>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="%sveltekit.assets%/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+%sveltekit.head%
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?179af6c9be02bdd4fd914f7c2fba30b7";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</head>
+<body>
+%sveltekit.body%
+</body>
 </html>
