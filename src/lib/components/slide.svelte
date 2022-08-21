@@ -1,22 +1,48 @@
 <script>
     export let items = [];
+    export let slidesPerView = '1';
+    export let autoplay = false;
     import { Swiper, SwiperSlide } from 'swiper/svelte';
-    import { Pagination, Navigation } from 'swiper';
+    import { Pagination, Navigation, FreeMode, Autoplay } from 'swiper';
     import 'swiper/css';
     import 'swiper/css/pagination';
     import 'swiper/css/navigation';
+    import 'swiper/css/free-mode';
+    let className = 'slide';
+    let spaceBetween = 0;
+    let pagination = {type: 'fraction'};
+    let modules = [Pagination, Navigation, FreeMode];
+    if (slidesPerView !== '1') {
+        className = 'slide slide-multiple';
+        spaceBetween = 8;
+        pagination.type = 'progressbar';
+    }
+    if (autoplay === true) {
+        className = 'slide slide-auto';
+        pagination = {clickable: true};
+        modules = [Autoplay, Pagination];
+        autoplay = {
+            delay: 2000,
+            disableOnInteraction: false,
+        };
+    }
 </script>
 
 <Swiper
-    class="slide"
-    pagination={{type: 'fraction'}}
-    navigation={true}
-    modules={[Pagination, Navigation]}>
+    class={className}
+    slidesPerView={slidesPerView}
+    spaceBetween={spaceBetween}
+    pagination={pagination}
+    navigation={!autoplay ? true : false}
+    grabCursor={!autoplay ? true : false}
+    loop={autoplay ? true : false}
+    autoplay={autoplay}
+    modules={modules}>
     {#each items as item}
     <SwiperSlide>
         <div class="slide-page">
             <img class="slide-image" src={item.image} srcset={`${item.image} 2x`} alt="">
-            <p class="slide-text">{item.text}</p>
+            {#if item.text}<p class="slide-text">{item.text}</p>{/if}
         </div>
     </SwiperSlide>
     {/each}

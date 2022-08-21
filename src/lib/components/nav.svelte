@@ -37,7 +37,7 @@
     </label>
     <ul id="page-nav" class="page-nav">
         <li><a href="/" class:current={pageIndenity === 'home'}>设计作品</a></li>
-        <li><a href="/code" class:current={pageIndenity === 'code'}>开源项目</a></li>
+        <li><a href="/projects" class:current={pageIndenity === 'projects'}>开源项目</a></li>
         <li><a href="/resume" class:current={pageIndenity === 'resume'}>个人简历</a></li>
     </ul>
     <div id="nav-underline" class="nav-underline"></div>
