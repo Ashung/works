@@ -2,6 +2,7 @@
     import '$lib/style/common.postcss';
     import '$lib/style/resume.postcss';
     import Nav from '$lib/components/nav.svelte';
+    import { page } from '$app/stores';
 </script>
 
 <Nav/>
@@ -10,7 +11,7 @@
     <section class="profile">
         <h1 class="name">洪斯胜 简历</h1>
         <div class="download">
-            <a href="/resume.pdf" download="高级UI设计师-洪斯胜简历" target="_blank">下载 PDF 版</a>
+            <a href={$page.url.origin + "/resume.pdf"} download="高级UI设计师-洪斯胜简历">下载 PDF 版</a>
         </div>
         <ul class="status">
             <li>应聘职位： 高级 UI 设计师、UI 开发工程师</li>

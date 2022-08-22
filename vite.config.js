@@ -8,7 +8,7 @@ const config = {
         isoImport()
     ],
     define: {
-        'process.env.VITE_BUILD_TIME': JSON.stringify(new Date().toLocaleString()),
+        'process.env.VITE_BUILD_TIME': JSON.stringify(new Date().toISOString()),
     }
 };
 
