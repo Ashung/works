@@ -100,7 +100,7 @@
     const work_360os_system_icons = [
         { image: '/360os_icon/icons.png', text: '' }
     ];
-    const work_coolpad_icon = Array.from({length: 7}).map((_, index) => {
+    const work_coolpad_icon = Array.from({length: 18}).map((_, index) => {
         return { image: '/coolpad/c_' + (index + 1) + '.jpg' }
     });
     const work_doov_icon = Array.from({length: 31}).map((_, index) => {
@@ -489,6 +489,7 @@
             <path stroke="#FFFFFF" opacity="0.4" fill="none" d="M0.5 0.5h119v119H0.5z"/>
         </svg>
         <div class="icon-shape-controller">
+            <div id="icon-popup-tip" class="dark popup-tip animate-shake">拖动滑块以改变图标形状</div>
             <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M.75.75h14.5v14.5H.75z" stroke="#FFF" stroke-width="1.5" fill="none"/></svg>
             <input id="icon-radius" min="0" max="100" type="range" value="0">
             <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><rect x="0.75" y="0.75" width="14.5" height="14.5" rx="7.25" stroke="#FFF" stroke-width="1.5" fill="none"/></svg>
@@ -497,7 +498,6 @@
                 <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M8.859.75H7.14c-1.834 0-2.825.235-3.718.713a4.712 4.712 0 00-1.96 1.96C.985 4.316.75 5.307.75 7.141V8.86c0 1.834.235 2.825.713 3.718a4.712 4.712 0 001.96 1.96c.893.478 1.884.713 3.718.713H8.86c1.834 0 2.825-.235 3.718-.713a4.712 4.712 0 001.96-1.96c.478-.893.713-1.884.713-3.718V7.14c0-1.834-.235-2.825-.713-3.718a4.712 4.712 0 00-1.96-1.96C11.684.985 10.693.75 8.859.75z" stroke="#FFF" stroke-width="1.5" fill="none" stroke-opacity=".4"/></svg>
             </div>
             <label for="icon-smooth-radius">超椭圆</label>
-            <div id="icon-popup-tip" class="dark popup-tip animate-shake">拖动滑块以改变图标形状</div>
         </div>
         <svg class="theme-icons" height="528" width="936" viewBox="0 0 936 528" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <defs>
@@ -598,7 +598,7 @@
     <Heading title="CoolUI 系统主题设计" date="2014" tools="Photoshop">
         <p>为酷派 Coolpad 旗下大神 Dazen 手机两款旗舰机型 F2 和 X7 设计的系统主题。</p>
     </Heading>
-    <Container grid={true} items={work_coolpad_icon}/>
+    <Slide slidesPerView="auto" items={work_coolpad_icon}/>
 </section>
 
 <section class="works">

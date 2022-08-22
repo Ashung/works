@@ -1,5 +1,11 @@
 <script>
     import '$lib/style/common.postcss';
+    import 'swiper/css';
+    import 'swiper/css/pagination';
+    import 'swiper/css/navigation';
+    import 'swiper/css/free-mode';
+    import 'swiper/css/scrollbar';
+    import "swiper/css/lazy";
     import '$lib/style/home.postcss';
     import '$lib/style/resume.postcss';
     import { onMount } from 'svelte';
