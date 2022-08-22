@@ -112,6 +112,23 @@
     }
     @media (--mobile) {
         margin: 80px 32px 32px;
+        & .profile {
+            display: flex;
+            flex-direction: column;
+            & .download {
+                order: -1;
+                align-self: end;
+                & a {
+                    padding: 0.5em;
+                    border: 2px solid var(--color-accent);
+                    border-radius: 4px;
+                    &:hover, &:active {
+                        color: #FFF;
+                        background: var(--color-accent);
+                    }
+                }
+            }
+        }
         & .list {
             grid-template-columns: 1fr;
             & .company, & .title, & .content {

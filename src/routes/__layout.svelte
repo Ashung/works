@@ -14,23 +14,36 @@
         const navUnderLine = document.querySelector('nav .nav-underline');
         const pageNavItems = document.querySelectorAll('nav .page-nav a');
         let pageNavCurrent = document.querySelector('nav .page-nav a.current');
-        showLine(pageNavCurrent);
+        showLine(navUnderLine, pageNavCurrent);
 
         pageNavItems.forEach(item => {
             item.addEventListener('mouseover', event => {
-                showLine(item);
+                showLine(navUnderLine, item);
             });
             item.addEventListener('mouseout', event => {
                 pageNavCurrent = document.querySelector('nav .page-nav a.current');
-                showLine(pageNavCurrent);
+                showLine(navUnderLine, pageNavCurrent);
+            });
+            item.addEventListener('click', event => {
+                const checkbox = document.getElementById('page-nav-toggle');
+                checkbox.checked = false;
             });
         });
 
-        function showLine(node) {
-            navUnderLine.style.left = node.offsetLeft + 'px';
-            navUnderLine.style.width = node.offsetWidth + 'px';
+        function showLine(line, node) {
+            line.style.left = node.offsetLeft + 'px';
+            line.style.width = node.offsetWidth + 'px';
         }
     });
+
+    function handleOrientationchange() {
+        const line = document.querySelector('nav .nav-underline');
+        const current = document.querySelector('nav .page-nav a.current');
+        setTimeout(() => {
+            line.style.left = current.offsetLeft + 'px';
+            line.style.width = current.offsetWidth + 'px';
+        }, 100);
+    }
 </script>
 
 <nav>
@@ -49,8 +62,10 @@
 </nav>
 
 {#if $navigating}
-<PreloadingIndicator />
+<PreloadingIndicator/>
 {/if}
+
+<svelte:window on:orientationchange={handleOrientationchange}/>
 
 <main>
     <slot></slot>
