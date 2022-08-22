@@ -1,8 +1,4 @@
 <script>
-    import '$lib/style/common.postcss';
-    import '$lib/style/home.postcss';
-    import Nav from '$lib/components/nav.svelte';
-    import Footer from '$lib/components/footer.svelte';
     import Heading from '$lib/components/heading.svelte';
     import Slide from '$lib/components/slide.svelte';
     import { onMount } from 'svelte';
@@ -142,8 +138,6 @@
     }
     
 </script>
-
-<Nav/>
 
 <div class="projects">
     <section class="works project project-automate">
@@ -313,4 +307,3 @@
     </section>
 
 </div>
-<Footer/>

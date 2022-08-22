@@ -3,7 +3,7 @@
     import { page } from '$app/stores'; 
     let pageNavWrap;
     $: pageIndenity = $page.url.pathname.split('/')[1] || 'home';
-    
+
     onMount(() => {
 
         const navUnderLine = pageNavWrap.querySelector('.nav-underline');

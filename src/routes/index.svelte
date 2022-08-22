@@ -1,8 +1,4 @@
 <script>
-    import '$lib/style/common.postcss';
-    import '$lib/style/home.postcss';
-    import Nav from '$lib/components/nav.svelte';
-    import Footer from '$lib/components/footer.svelte';
     import Heading from '$lib/components/heading.svelte';
     import SubHeading from '$lib/components/sub_heading.svelte';
     import Slide from '$lib/components/slide.svelte';
@@ -380,8 +376,6 @@
     });
 </script>
 
-<Nav/>
-
 <section class="about">
     <div class="about-text">
         <p>
@@ -613,5 +607,3 @@
     </Heading>
     <Slide slidesPerView="auto" items={work_doov_icon}/>
 </section>
-
-<Footer/>

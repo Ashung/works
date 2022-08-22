@@ -1,17 +1,23 @@
 <script>
-    import '$lib/style/common.postcss';
-    import '$lib/style/resume.postcss';
-    import Nav from '$lib/components/nav.svelte';
     import { page } from '$app/stores';
-</script>
 
-<Nav/>
+    const resumeFile = $page.url.origin + '/resume.pdf';
+
+    function download(event) {
+        event.preventDefault();
+        const link = document.createElement('a');
+        link.href = event.target.href;
+        link.download = event.target.download + '.pdf';
+        link.click();
+        link.remove();
+    }
+</script>
 
 <div class="container container-resume">
     <section class="profile">
         <h1 class="name">洪斯胜 简历</h1>
         <div class="download">
-            <a href={$page.url.origin + "/resume.pdf"} download="高级UI设计师-洪斯胜简历.pdf">下载 PDF 版</a>
+            <a href={resumeFile} download="高级UI设计师-洪斯胜简历" on:click={download}>下载 PDF 版</a>
         </div>
         <ul class="status">
             <li>应聘职位： 高级 UI 设计师、UI 开发工程师</li>
