@@ -5,7 +5,6 @@
     import 'swiper/css/navigation';
     import 'swiper/css/free-mode';
     import 'swiper/css/scrollbar';
-    import "swiper/css/lazy";
     import '$lib/style/home.postcss';
     import '$lib/style/resume.postcss';
     import { onMount } from 'svelte';
@@ -16,7 +15,6 @@
     $: pageIndenity = $page.url.pathname.split('/')[1] || 'home';
 
     onMount(() => {
-
         const navUnderLine = document.querySelector('nav .nav-underline');
         const pageNavItems = document.querySelectorAll('nav .page-nav a');
         let pageNavCurrent = document.querySelector('nav .page-nav a.current');
@@ -35,22 +33,21 @@
                 checkbox.checked = false;
             });
         });
-
-        function showLine(line, node) {
-            line.style.left = node.offsetLeft + 'px';
-            line.style.width = node.offsetWidth + 'px';
-        }
     });
+    
+    function showLine(line, node) {
+        line.style.left = node.offsetLeft + 'px';
+        line.style.width = node.offsetWidth + 'px';
+    }
 
     function handleOrientationchange() {
         const line = document.querySelector('nav .nav-underline');
         const current = document.querySelector('nav .page-nav a.current');
-        setTimeout(() => {
-            line.style.left = current.offsetLeft + 'px';
-            line.style.width = current.offsetWidth + 'px';
-        }, 100);
+        setTimeout(showLine(line, current), 100);
     }
 </script>
+
+<svelte:window on:orientationchange={handleOrientationchange}/>
 
 <nav>
     <input type="checkbox" id="page-nav-toggle">
@@ -70,8 +67,6 @@
 {#if $navigating}
 <PreloadingIndicator/>
 {/if}
-
-<svelte:window on:orientationchange={handleOrientationchange}/>
 
 <main>
     <slot></slot>

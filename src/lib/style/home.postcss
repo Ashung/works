@@ -4,24 +4,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: #f5f5f5;
-    padding: 72px env(safe-area-inset-right) 48px env(safe-area-inset-left);
+    padding: 96px env(safe-area-inset-right) 48px env(safe-area-inset-left);
     & .about-text {
         color: #666;
         max-width: 800px;
         padding: 0 16px 0;
-        tex-align: justify;
         & p {
             margin-bottom: 1em;
         }
-        & .contact {
-            margin-left: 1em;
-            list-style-type: disc;
+        & .contacts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 8px;
             line-height: 2em;
+            & li {
+                flex: 1;
+            }
             & a:link, & a:visited {
                 text-decoration: none;
-                margin-left: 8px;
+                margin-left: 4px;
             }
         }
         & .wechat-qrcode {
@@ -74,7 +75,14 @@
             animation: mousewheel 1s linear infinite;
         }
     }
-    
+    @media (--mobile) {
+        & .about-text {
+            & .contacts {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    }
 }
 
 .works {
@@ -165,19 +173,7 @@
             max-height: 500px;
             aspect-ratio: 2 / 1;
             object-fit: contain;
-
-
             outline: none;
-
-         
-            /* -ms-transform: translate(-50%, -50%);
-            -webkit-transform: translate(-50%, -50%);
-            -moz-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%); */
-            /* position: absolute;
-            left: 50%;
-            top: 50%; */
-
         }
         & .slide-text {
             text-align: center;
@@ -376,18 +372,18 @@
     }
     & .theme-widget {
         position: relative;
-        padding-bottom: 200px;
-    }
-    & #widget {
-        position: relative;
-        z-index: 20;
-        width: 311px;
-        height: 311px;
-        margin: 0 auto;
-        overflow: hidden;
-        font-family: Roboto, sans-serif;
-        user-select: none;
-        text-align: center;
+        height: 150vh;
+        & #widget {
+            position: relative;
+            z-index: 20;
+            width: 311px;
+            height: 311px;
+            margin: 0 auto;
+            overflow: hidden;
+            font-family: Roboto, sans-serif;
+            user-select: none;
+            text-align: center;
+        }
     }
     & #widget-bg {
         position: absolute;
@@ -717,8 +713,7 @@
     }
 }
 
-.projects {
-    padding-top: 80px;
+.project {
     & .project-image {
         & img {
             display: block;
@@ -727,6 +722,10 @@
             border-radius: 4px;
         }
     }
+}
+
+.project-automate {
+    margin-top: 80px;
 }
 
 .sketch-plugin-stats {
@@ -837,6 +836,18 @@
     }
 }
 
+.animate-section {
+    animation: fade-in 1.5s cubic-bezier(0, 0, 0.2, 1), move-up 1s cubic-bezier(0, 0, 0.2, 1);
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes move-up {
+    0% { transform: translateY(160px); }
+    100% { transform: translateY(0); }
+}
 @keyframes shake {
     0% { margin-top: 0; }
     50% { margin-top: 8px; }

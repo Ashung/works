@@ -4,9 +4,9 @@
     import Slide from '$lib/components/slide.svelte';
     import Container from '$lib/components/container.svelte';
     import FontPreview from '$lib/components/font_preview.svelte';
+    import SectionAnimation from '$lib/components/section_animation.svelte';
+    import Scroller from '$lib/components/scroller.svelte';
     import { onMount } from 'svelte';
-    import ScrollMagic from 'scrollmagic?client';
-    // import 'scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js?client';
 
     const work_os_system = [
         { image: '/cadothy_os/s_1.jpg', text: '部分系统公共组件。' },
@@ -68,6 +68,7 @@
         { image: '/cadothy_desktop/d_7.jpg', text: '应用图标' },
     ];
     const work_web_site = [
+        { image: '/cadothy_site/w_8.jpg', text: 'Amaze 产品介绍，响应式设计' },
         { image: '/cadothy_site/w_1.jpg', text: '首页和代理商' },
         { image: '/cadothy_site/w_2.jpg', text: '首页（平板模式）' },
         { image: '/cadothy_site/w_3.jpg', text: '首页（手机模式）' },
@@ -107,10 +108,11 @@
         return { image: '/doov/d_' + (index + 1) + '.jpg' }
     });
 
+    let doCreateWidgetSky = true;
+    const themeIconAnimations = [];
+    const themeIconAnimationLayers = [];
+
     onMount(() => {
-
-        const controller = new ScrollMagic.Controller();
-
         // 主题1
         const iconRadiusRange = document.getElementById('icon-radius');
         const smoothRadius = document.getElementById('icon-smooth-radius');
@@ -156,83 +158,16 @@
             pathElementWeather.setAttribute('d', d);
         }
 
-        const sectionTheme1 = document.getElementById('section-theme-1');
-        const widgetBackground = document.getElementById('widget-bg');
         const widgetDate = document.getElementById('widget-date');
-        const widgetTime = document.getElementById('widget-time');
-        const widgetIconSun = document.getElementById('widget-icon-sun');
-        const widgetIconMoon = document.getElementById('widget-icon-moon');
-        const widgetSky = document.getElementById('widget-sky');
         const date = new Date();
         date.setHours(10);
         date.setMinutes(8);
         const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'][date.getMonth()];
         const week = ['Sun', 'Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat'][date.getDay()];
         widgetDate.innerText = `${week}, ${month} ${date.getDate()}`;
-        let doCreateWidgetSky = true;
-        const scene1 = new ScrollMagic.Scene({triggerElement: '#widget-sky', duration: 300, offset: 200})
-            // .addIndicators()
-            .setPin("#widget")
-            .addTo(controller)
-            .on('enter', e => {
-                if (doCreateWidgetSky) {
-                    doCreateWidgetSky = false;
-                    createWidgetSky();
-                }
-            })
-            .on('progress', e => {
-                let weatherTime = new Date(date.getTime() + e.progress * 1000 * 60 * 60 * 12);
-                widgetTime.innerText = (weatherTime.getHours() < 10 ? '0' + weatherTime.getHours() : weatherTime.getHours())
-                    + ':'
-                    + (weatherTime.getMinutes() < 10 ? '0' + weatherTime.getMinutes() : weatherTime.getMinutes());
-                if (weatherTime.getHours() > 18) {
-                    widgetSky.style.opacity = '1';
-                    sectionTheme1.style.backgroundColor = '#211D49';
-                    widgetIconSun.style.top = '92px';
-                    widgetIconMoon.style.top = '12px';
-                    widgetBackground.style.backgroundPositionY = '-311px';
-                } else {
-                    widgetSky.style.opacity = '0';
-                    sectionTheme1.style.backgroundColor = '#322C6E';
-                    widgetIconSun.style.top = '12px';
-                    widgetIconMoon.style.top = '92px';
-                    widgetBackground.style.backgroundPositionY = '0';
-                }
-            });
-        function createWidgetSky() {
-            for (let i = 0; i < 100; i++) {
-                let star = document.createElement('div');
-                star.className = 'star';
-                star.style.bottom = (Math.random() * window.innerHeight) + 'px';
-                star.style.left = (Math.random() * 100) + '%';
-                if (Math.random() > 0.6) {
-                    star.style.animation = `star 3s ease ${Math.random() * 10}s infinite`;
-                }
-                if (Math.random() > 0.5) {
-                    star.style.width = '1px';
-                    star.style.height = '1px';
-                }
-                if (Math.random() > 0.5) {
-                    star.style.backgroundColor = `rgba(255, 255, 255, ${Math.random()}`;
-                }
-                widgetSky.appendChild(star);
-            }
-            for (let i = 0; i < 6; i++) {
-                let meteor = document.createElement('div');
-                meteor.className = 'meteor';
-                meteor.style.bottom = (Math.random() * window.innerHeight) + 'px';
-                meteor.style.left = (Math.random() * 100) + '%';
-                meteor.style.animation = `meteor 5s ease ${Math.random() * 10}s infinite`;
-                meteor.style.width = Math.floor(Math.random() * (500 - 200 + 1) + 200) + 'px';
-                widgetSky.appendChild(meteor);
-            }
-        }
 
         // 主题2
         const themeIcons = document.querySelector('.work-theme-2 .theme-wrap');
-        const themeIconAnimations = [];
-        const themeIconAnimationLayers = [];
-        
         // 时钟
         const now = new Date();
         const hourDeg = (now.getHours() * 60 + now.getMinutes()) * 0.5;
@@ -349,10 +284,98 @@
         themeIconAnimationLayers.push(themeIconSafeChild1);
         themeIconAnimationLayers.push(themeIconSafeChild2);
 
-        const scene2 = new ScrollMagic.Scene({triggerElement: '#section-theme-2', duration: document.getElementById('section-theme-2').offsetHeight})
-            // .addIndicators()
-            .addTo(controller)
-            .on('enter', e => {
+    });
+
+    function createWidgetSky(widgetSky) {
+        for (let i = 0; i < 100; i++) {
+            let star = document.createElement('div');
+            star.className = 'star';
+            star.style.bottom = (Math.random() * window.innerHeight) + 'px';
+            star.style.left = (Math.random() * 100) + '%';
+            if (Math.random() > 0.6) {
+                star.style.animation = `star 3s ease ${Math.random() * 10}s infinite`;
+            }
+            if (Math.random() > 0.5) {
+                star.style.width = '1px';
+                star.style.height = '1px';
+            }
+            if (Math.random() > 0.5) {
+                star.style.backgroundColor = `rgba(255, 255, 255, ${Math.random()}`;
+            }
+            widgetSky.appendChild(star);
+        }
+        for (let i = 0; i < 6; i++) {
+            let meteor = document.createElement('div');
+            meteor.className = 'meteor';
+            meteor.style.bottom = (Math.random() * window.innerHeight) + 'px';
+            meteor.style.left = (Math.random() * 100) + '%';
+            meteor.style.animation = `meteor 5s ease ${Math.random() * 10}s infinite`;
+            meteor.style.width = Math.floor(Math.random() * (500 - 200 + 1) + 200) + 'px';
+            widgetSky.appendChild(meteor);
+        }
+    }
+
+    let currentSection;
+    function updateWidget() {
+        let progress = (window.innerHeight - currentSection.getBoundingClientRect().top) / currentSection.getBoundingClientRect().height;
+        progress = Math.min(1, progress);
+        progress = Math.max(0, progress);
+
+        const sectionTheme1 = document.getElementById('section-theme-1');
+        const widget = document.getElementById('widget');
+        const widgetBackground = document.getElementById('widget-bg');
+        const widgetTime = document.getElementById('widget-time');
+        const widgetIconSun = document.getElementById('widget-icon-sun');
+        const widgetIconMoon = document.getElementById('widget-icon-moon');
+        const widgetSky = document.getElementById('widget-sky');
+
+        let top = window.innerHeight / 2 - currentSection.getBoundingClientRect().top - widget.offsetHeight / 2;
+        top = Math.max(0, top);
+        top = Math.min(currentSection.offsetHeight - widget.offsetHeight, top)
+        widget.style.top = top + 'px';
+
+        const date = new Date();
+        date.setHours(10);
+        date.setMinutes(8);
+        let weatherTime = new Date(date.getTime() + progress * 1000 * 60 * 60 * 12);
+        widgetTime.innerText = (weatherTime.getHours() < 10 ? '0' + weatherTime.getHours() : weatherTime.getHours())
+            + ':'
+            + (weatherTime.getMinutes() < 10 ? '0' + weatherTime.getMinutes() : weatherTime.getMinutes());
+        if (weatherTime.getHours() > 18) {
+            widgetSky.style.opacity = '1';
+            sectionTheme1.style.backgroundColor = '#211D49';
+            widgetIconSun.style.top = '92px';
+            widgetIconMoon.style.top = '12px';
+            widgetBackground.style.backgroundPositionY = '-311px';
+        } else {
+            widgetSky.style.opacity = '0';
+            sectionTheme1.style.backgroundColor = '#322C6E';
+            widgetIconSun.style.top = '12px';
+            widgetIconMoon.style.top = '92px';
+            widgetBackground.style.backgroundPositionY = '0';
+        }
+    }
+
+    let handleScroll = (entry) => {
+        // 
+        const themeWidget = document.querySelector('.work-theme-1 .theme-widget');
+        if (entry.target === themeWidget) {            
+            const widgetSky = document.getElementById('widget-sky');
+            currentSection = themeWidget;
+            if (entry.isIntersecting) {
+                window.addEventListener('scroll', updateWidget);
+                if (doCreateWidgetSky) {
+                    doCreateWidgetSky = false;
+                    createWidgetSky(widgetSky);
+                }
+            } else {
+                window.removeEventListener('scroll', updateWidget);
+            }            
+        }
+        //
+        const themeIcons = document.querySelector('.work-theme-2 .theme-wrap');
+        if (entry.target === themeIcons) {
+            if (entry.isIntersecting) {
                 for (let animation of themeIconAnimations) {
                     if (!animation.classList.contains('animate')) {
                         animation.classList.add('animate');
@@ -361,34 +384,30 @@
                         layer.style.animationPlayState = 'running';
                     }
                 }
-            })
-            .on('leave', e => {
+            } else {
                 for (let layer of themeIconAnimationLayers) {
                     layer.style.mozAnimationPlayState = 'paused';
                     layer.style.webkitAnimationPlayState = 'paused';
                     layer.style.animationPlayState = 'paused';
                 }
-            });
-
-        return () => {
-            controller.removeScene([scene1, scene2]);
+            }
         }
-    });
+    };
 </script>
+
+<SectionAnimation/>
+<Scroller query="[data-scroll-trigger]" handleScroll={handleScroll}/>
 
 <section class="about">
     <div class="about-text">
         <p>
             本网页内容为工作期间的设计作品，内容包含移动端 UI、Android 系统主题、图标、网页、字体设计等，如果您觉得我符合贵司职位要求，可以通过以下方式联系我。
+            <a href="/resume">查看简历了解更多</a>
         </p>
-        <p>
-            本人有多年的 Android 平台设备的 UI 设计工作经验，熟悉各类系统的界面设计规范和流程，能够独立制定完整的设计规范。熟悉主流的 UI 设计的软件，已发布多款开源 Sketch 和 Figma 的插件。也有多年 HTML/CSS 前端开发的经验，熟悉中后台、工具类型等网站的 UI 设计和一些 Web 相关技术。
-        </p>
-        <p><a href="/resume">查看简历了解更多</a></p>
-        <ul class="contact">
-            <li>电话: <a href="tel://13666092891">136 6609 2891</a></li>
-            <li>微信: <a class="wechat" href={"#"}>Ashung</a> <img class="wechat-qrcode" src="/wechat.jpg" alt=""></li>
-            <li>邮件: <a href="mailto://ashung.hung@foxmail.com">ashung.hung@foxmail.com</a></li>
+        <ul class="contacts">
+            <li class="ic-phone">电话: <a href="tel://13666092891">136 6609 2891</a></li>
+            <li class="ic-wechat">微信: <a class="wechat" href={"#"}>Ashung</a> <img class="wechat-qrcode" src="/wechat.jpg" alt=""></li>
+            <li class="ic-mail">邮件: <a href="mailto://ashung.hung@foxmail.com">ashung.hung@foxmail.com</a></li>
         </ul>
     </div>
     <div class="mouse"><p>&darr;</p></div>
@@ -464,106 +483,103 @@
         <img width="260" height="520" src="/360os_theme_1/preview2.jpg" srcset="/360os_theme_1/preview2.jpg 2x" alt="">
         <img width="260" height="520" src="/360os_theme_1/preview3.jpg" srcset="/360os_theme_1/preview3.jpg 2x" alt="">
     </div>
-    <div class="theme-icon-wrap">
-        <SubHeading title="灵活的图标形状">
-            <p>来自 Android 8.0 Adaptive Icon 的灵感，通过改进设计方法和图层结构，后期使用 Sketch 脚本，实现不需要重复设计和修改文档，也能够根据客户需求快速生成各种形状的图标。</p>
-        </SubHeading>
-        <svg class="weather-icon" width="240" height="240" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <clipPath id="icon-mask">
-                    <path id="icon-shape-2" d="M0,0h104v104h-104z"/>
-                </clipPath>
-            </defs>
-            <g clip-path="url(#icon-mask)" transform="translate(8,8)">
-                <g transform="translate(-8,-8)">
-                    <rect fill="#196EE6" x="0" y="0" width="120" height="120"/>
-                    <circle fill="#FFCC33" cx="60" cy="60" r="32"/>
-                    <rect class="weather-cloud" fill="#FFFFFF" fill-opacity="0.9" x="64" y="60" width="36" height="24" rx="12"/>
-                </g>
+    <SubHeading title="灵活的图标形状">
+        <p>来自 Android 8.0 Adaptive Icon 的灵感，通过改进设计方法和图层结构，后期使用 Sketch 脚本，实现不需要重复设计和修改文档，也能够根据客户需求快速生成各种形状的图标。</p>
+    </SubHeading>
+    <svg class="weather-icon" width="240" height="240" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <clipPath id="icon-mask">
+                <path id="icon-shape-2" d="M0,0h104v104h-104z"/>
+            </clipPath>
+        </defs>
+        <g clip-path="url(#icon-mask)" transform="translate(8,8)">
+            <g transform="translate(-8,-8)">
+                <rect fill="#196EE6" x="0" y="0" width="120" height="120"/>
+                <circle fill="#FFCC33" cx="60" cy="60" r="32"/>
+                <rect class="weather-cloud" fill="#FFFFFF" fill-opacity="0.9" x="64" y="60" width="36" height="24" rx="12"/>
             </g>
-            <path stroke="#FFFFFF" opacity="0.6" fill="none" d="M60 28a32 32 0 100 64 32 32 0 100-64z"/>
-            <path stroke="#FFFFFF" opacity="0.2" fill="none" d="M0 0l120 120M0 120L120 0M60 0v120M0 60h120"/>
-            <rect stroke="#FFFFFF" opacity="0.4" fill="none" x="32" y="32" width="56" height="56" rx="4"/>
-            <rect stroke="#FFFFFF" opacity="0.4" fill="none" x="36" y="28" width="48" height="64" rx="4"/>
-            <rect stroke="#FFFFFF" opacity="0.4" fill="none" x="28" y="36" width="64" height="48" rx="4"/>
-            <path stroke="#FFFFFF" opacity="0.4" fill="none" d="M0.5 0.5h119v119H0.5z"/>
-        </svg>
-        <div class="icon-shape-controller">
-            <div id="icon-popup-tip" class="dark popup-tip animate-shake">拖动滑块以改变图标形状</div>
-            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M.75.75h14.5v14.5H.75z" stroke="#FFF" stroke-width="1.5" fill="none"/></svg>
-            <input id="icon-radius" min="0" max="100" type="range" value="0">
-            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><rect x="0.75" y="0.75" width="14.5" height="14.5" rx="7.25" stroke="#FFF" stroke-width="1.5" fill="none"/></svg>
-            <div class="icon-shape-smooth">
-                <input id="icon-smooth-radius" type="checkbox">
-                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M8.859.75H7.14c-1.834 0-2.825.235-3.718.713a4.712 4.712 0 00-1.96 1.96C.985 4.316.75 5.307.75 7.141V8.86c0 1.834.235 2.825.713 3.718a4.712 4.712 0 001.96 1.96c.893.478 1.884.713 3.718.713H8.86c1.834 0 2.825-.235 3.718-.713a4.712 4.712 0 001.96-1.96c.478-.893.713-1.884.713-3.718V7.14c0-1.834-.235-2.825-.713-3.718a4.712 4.712 0 00-1.96-1.96C11.684.985 10.693.75 8.859.75z" stroke="#FFF" stroke-width="1.5" fill="none" stroke-opacity=".4"/></svg>
-            </div>
-            <label for="icon-smooth-radius">超椭圆</label>
+        </g>
+        <path stroke="#FFFFFF" opacity="0.6" fill="none" d="M60 28a32 32 0 100 64 32 32 0 100-64z"/>
+        <path stroke="#FFFFFF" opacity="0.2" fill="none" d="M0 0l120 120M0 120L120 0M60 0v120M0 60h120"/>
+        <rect stroke="#FFFFFF" opacity="0.4" fill="none" x="32" y="32" width="56" height="56" rx="4"/>
+        <rect stroke="#FFFFFF" opacity="0.4" fill="none" x="36" y="28" width="48" height="64" rx="4"/>
+        <rect stroke="#FFFFFF" opacity="0.4" fill="none" x="28" y="36" width="64" height="48" rx="4"/>
+        <path stroke="#FFFFFF" opacity="0.4" fill="none" d="M0.5 0.5h119v119H0.5z"/>
+    </svg>
+    <div class="icon-shape-controller">
+        <div id="icon-popup-tip" class="dark popup-tip animate-shake">拖动滑块以改变图标形状</div>
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M.75.75h14.5v14.5H.75z" stroke="#FFF" stroke-width="1.5" fill="none"/></svg>
+        <input id="icon-radius" min="0" max="100" type="range" value="0">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><rect x="0.75" y="0.75" width="14.5" height="14.5" rx="7.25" stroke="#FFF" stroke-width="1.5" fill="none"/></svg>
+        <div class="icon-shape-smooth">
+            <input id="icon-smooth-radius" type="checkbox">
+            <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg"><path d="M8.859.75H7.14c-1.834 0-2.825.235-3.718.713a4.712 4.712 0 00-1.96 1.96C.985 4.316.75 5.307.75 7.141V8.86c0 1.834.235 2.825.713 3.718a4.712 4.712 0 001.96 1.96c.893.478 1.884.713 3.718.713H8.86c1.834 0 2.825-.235 3.718-.713a4.712 4.712 0 001.96-1.96c.478-.893.713-1.884.713-3.718V7.14c0-1.834-.235-2.825-.713-3.718a4.712 4.712 0 00-1.96-1.96C11.684.985 10.693.75 8.859.75z" stroke="#FFF" stroke-width="1.5" fill="none" stroke-opacity=".4"/></svg>
         </div>
-        <svg class="theme-icons" height="528" width="936" viewBox="0 0 936 528" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <defs>
-                <path id="icon-shape" d="M0,0h104v104h-104z"/>
-                <mask id="mask" fill="white">
-                    <use x="8" y="8" xlink:href="#icon-shape"/>
-                    <use x="144" y="8" xlink:href="#icon-shape"/>
-                    <use x="280" y="8" xlink:href="#icon-shape"/>
-                    <use x="416" y="8" xlink:href="#icon-shape"/>
-                    <use x="552" y="8" xlink:href="#icon-shape"/>
-                    <use x="688" y="8" xlink:href="#icon-shape"/>
-                    <use x="824" y="8" xlink:href="#icon-shape"/>
-                    <use x="960" y="8" xlink:href="#icon-shape"/>
-                    <use x="8" y="144" xlink:href="#icon-shape"/>
-                    <use x="144" y="144" xlink:href="#icon-shape"/>
-                    <use x="280" y="144" xlink:href="#icon-shape"/>
-                    <use x="416" y="144" xlink:href="#icon-shape"/>
-                    <use x="552" y="144" xlink:href="#icon-shape"/>
-                    <use x="688" y="144" xlink:href="#icon-shape"/>
-                    <use x="824" y="144" xlink:href="#icon-shape"/>
-                    <use x="960" y="144" xlink:href="#icon-shape"/>
-                    <use x="8" y="280" xlink:href="#icon-shape"/>
-                    <use x="144" y="280" xlink:href="#icon-shape"/>
-                    <use x="280" y="280" xlink:href="#icon-shape"/>
-                    <use x="416" y="280" xlink:href="#icon-shape"/>
-                    <use x="552" y="280" xlink:href="#icon-shape"/>
-                    <use x="688" y="280" xlink:href="#icon-shape"/>
-                    <use x="824" y="280" xlink:href="#icon-shape"/>
-                    <use x="960" y="280" xlink:href="#icon-shape"/>
-                    <use x="8" y="416" xlink:href="#icon-shape"/>
-                    <use x="144" y="416" xlink:href="#icon-shape"/>
-                    <use x="280" y="416" xlink:href="#icon-shape"/>
-                    <use x="416" y="416" xlink:href="#icon-shape"/>
-                    <use x="552" y="416" xlink:href="#icon-shape"/>
-                    <use x="688" y="416" xlink:href="#icon-shape"/>
-                    <use x="824" y="416" xlink:href="#icon-shape"/>
-                    <use x="960" y="416" xlink:href="#icon-shape"/>
-                    <use x="8" y="552" xlink:href="#icon-shape"/>
-                    <use x="144" y="552" xlink:href="#icon-shape"/>
-                    <use x="280" y="552" xlink:href="#icon-shape"/>
-                    <use x="416" y="552" xlink:href="#icon-shape"/>
-                    <use x="552" y="552" xlink:href="#icon-shape"/>
-                    <use x="688" y="552" xlink:href="#icon-shape"/>
-                    <use x="824" y="552" xlink:href="#icon-shape"/>
-                    <use x="960" y="552" xlink:href="#icon-shape"/>
-                </mask>
-            </defs>
-            <image xlink:href="/360os_theme_1/icon.jpg" x="0" y="0" height="528" width="936" mask="url(#mask)"/>
-        </svg>
-        <SubHeading title="Widget 设计">
-            <p>Widget 的设计需要兼容白天、夜晚以及不同天气等场景。</p>
-        </SubHeading>
-        <div class="theme-widget">
-            <div id="widget-sky"></div>
-            <div id="widget">
-                <div id="widget-bg"></div>
-                <div id="widget-icon">
-                    <div id="widget-icon-sun"></div>
-                    <div id="widget-icon-moon"></div>
-                    <div id="widget-icon-cloud"></div>
-                </div>
-                <div id="widget-date">Date</div>
-                <div id="widget-time">10:08</div>
-                <div id="widget-weather">Shenzhen Sunny 21°C</div>
+        <label for="icon-smooth-radius">超椭圆</label>
+    </div>
+    <svg class="theme-icons" height="528" width="936" viewBox="0 0 936 528" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <path id="icon-shape" d="M0,0h104v104h-104z"/>
+            <mask id="mask" fill="white">
+                <use x="8" y="8" xlink:href="#icon-shape"/>
+                <use x="144" y="8" xlink:href="#icon-shape"/>
+                <use x="280" y="8" xlink:href="#icon-shape"/>
+                <use x="416" y="8" xlink:href="#icon-shape"/>
+                <use x="552" y="8" xlink:href="#icon-shape"/>
+                <use x="688" y="8" xlink:href="#icon-shape"/>
+                <use x="824" y="8" xlink:href="#icon-shape"/>
+                <use x="960" y="8" xlink:href="#icon-shape"/>
+                <use x="8" y="144" xlink:href="#icon-shape"/>
+                <use x="144" y="144" xlink:href="#icon-shape"/>
+                <use x="280" y="144" xlink:href="#icon-shape"/>
+                <use x="416" y="144" xlink:href="#icon-shape"/>
+                <use x="552" y="144" xlink:href="#icon-shape"/>
+                <use x="688" y="144" xlink:href="#icon-shape"/>
+                <use x="824" y="144" xlink:href="#icon-shape"/>
+                <use x="960" y="144" xlink:href="#icon-shape"/>
+                <use x="8" y="280" xlink:href="#icon-shape"/>
+                <use x="144" y="280" xlink:href="#icon-shape"/>
+                <use x="280" y="280" xlink:href="#icon-shape"/>
+                <use x="416" y="280" xlink:href="#icon-shape"/>
+                <use x="552" y="280" xlink:href="#icon-shape"/>
+                <use x="688" y="280" xlink:href="#icon-shape"/>
+                <use x="824" y="280" xlink:href="#icon-shape"/>
+                <use x="960" y="280" xlink:href="#icon-shape"/>
+                <use x="8" y="416" xlink:href="#icon-shape"/>
+                <use x="144" y="416" xlink:href="#icon-shape"/>
+                <use x="280" y="416" xlink:href="#icon-shape"/>
+                <use x="416" y="416" xlink:href="#icon-shape"/>
+                <use x="552" y="416" xlink:href="#icon-shape"/>
+                <use x="688" y="416" xlink:href="#icon-shape"/>
+                <use x="824" y="416" xlink:href="#icon-shape"/>
+                <use x="960" y="416" xlink:href="#icon-shape"/>
+                <use x="8" y="552" xlink:href="#icon-shape"/>
+                <use x="144" y="552" xlink:href="#icon-shape"/>
+                <use x="280" y="552" xlink:href="#icon-shape"/>
+                <use x="416" y="552" xlink:href="#icon-shape"/>
+                <use x="552" y="552" xlink:href="#icon-shape"/>
+                <use x="688" y="552" xlink:href="#icon-shape"/>
+                <use x="824" y="552" xlink:href="#icon-shape"/>
+                <use x="960" y="552" xlink:href="#icon-shape"/>
+            </mask>
+        </defs>
+        <image xlink:href="/360os_theme_1/icon.jpg" x="0" y="0" height="528" width="936" mask="url(#mask)"/>
+    </svg>
+    <SubHeading title="Widget 设计">
+        <p>Widget 的设计需要兼容白天、夜晚以及不同天气等场景。</p>
+    </SubHeading>
+    <div class="theme-widget" data-scroll-trigger>
+        <div id="widget-sky"></div>
+        <div id="widget">
+            <div id="widget-bg"></div>
+            <div id="widget-icon">
+                <div id="widget-icon-sun"></div>
+                <div id="widget-icon-moon"></div>
+                <div id="widget-icon-cloud"></div>
             </div>
-            <div id="widget-sky-remove"></div>
+            <div id="widget-date">Date</div>
+            <div id="widget-time">10:08</div>
+            <div id="widget-weather">Shenzhen Sunny 21°C</div>
         </div>
     </div>
 </section>
@@ -573,7 +589,7 @@
         <p>超写实风格图标设计。在扁平盛行的环境下，写实风格更能体现设计师的功底，在个别图标上还增加了更真实感的动画特效。</p>
     </Heading>
     <div class="works-content">
-        <div class="theme-wrap">
+        <div class="theme-wrap" data-scroll-trigger>
             <img width="1160" height="440" src="/360os_theme_2/icon.jpg" srcset="/360os_theme_2/icon.jpg 2x" alt="">
         </div>
     </div>
@@ -596,7 +612,7 @@
 
 <section class="works">
     <Heading title="CoolUI 系统主题设计" date="2014" tools="Photoshop">
-        <p>为酷派 Coolpad 旗下大神 Dazen 手机两款旗舰机型 F2 和 X7 设计的系统主题。</p>
+        <p>为酷派 Coolpad 旗下大神 Dazen 手机两款旗舰机型 F2 和 X7 设计的默认主题。</p>
     </Heading>
     <Slide slidesPerView="auto" items={work_coolpad_icon}/>
 </section>
