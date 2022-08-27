@@ -10,7 +10,7 @@ const config = {
             fallback: '200.html',
         }),
         trailingSlash: 'always',
-        outDir: 'public'
+        outDir: 'dist'
     },
     preprocess: [
         preprocess({
