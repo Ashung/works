@@ -6,11 +6,11 @@ import preprocess from 'svelte-preprocess';
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
     kit: {
-        adapter: adapter({
-            fallback: '200.html',
-        }),
+        adapter: adapter(),
         trailingSlash: 'always',
-        outDir: 'dist'
+        prerender: {
+            default: true,
+        }
     },
     preprocess: [
         preprocess({
