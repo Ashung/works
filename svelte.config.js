@@ -7,6 +7,11 @@ import preprocess from 'svelte-preprocess';
 const config = {
     kit: {
         adapter: adapter(),
+        paths: {
+            relative: false,
+			base: '/works'
+		}
+        // process.argv.includes('dev') ? '' : 
         // trailingSlash: 'always',
         // prerender: {
         //     default: true,

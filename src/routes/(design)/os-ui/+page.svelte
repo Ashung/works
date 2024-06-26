@@ -1,4 +1,5 @@
 <script>
+    import { base } from '$app/paths';
     import Heading from '$lib/components/heading.svelte';
     import Description from '$lib/components/description.svelte';
     import Scroller from '$lib/components/scroller.svelte';
@@ -122,7 +123,7 @@
     </Description>
     {#each work_os_system as item}
     <figure>
-        <img src="{item.image}" srcset="{item.image} 2x" loading="lazy" alt="">
+        <img src="{base}{item.image}" srcset="{base}{item.image} 2x" loading="lazy" alt="">
         <figcaption>{item.text}</figcaption>
     </figure>
     {/each}
@@ -137,7 +138,7 @@
     </Description>
 
     <figure>
-        <img src="/360os_ui/icons.png" srcset="/360os_ui/icons.png 2x" loading="lazy" alt="">
+        <img src="{base}/360os_ui/icons.png" srcset="{base}/360os_ui/icons.png 2x" loading="lazy" alt="">
         <figcaption>360OS 部分系统图标</figcaption>
     </figure>
 
@@ -163,7 +164,7 @@
 
     {#each work_360os_ui as item}
     <figure class="colapse">
-        <img class="slide-image" src="{item.image}" srcset="{`${item.image} 2x`}" loading="lazy" alt="">
+        <img class="slide-image" src="{base}{item.image}" srcset="{`${base}${item.image} 2x`}" loading="lazy" alt="">
     </figure>
     {/each}
 </section>

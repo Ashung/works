@@ -2,7 +2,7 @@
     import '$lib/style/resume.postcss';
     import { page } from '$app/stores';
     let title = '高级 UI 设计师';
-    if ($page.url.pathname === '/resume/front') {
+    if ($page.url.pathname === 'works/resume/front') {
         title = '前端开发工程师';
     }
 </script>

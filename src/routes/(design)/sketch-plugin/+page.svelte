@@ -5,12 +5,13 @@
     import Slide from '$lib/components/slide.svelte';
     import SectionThumbs from '$lib/components/section_thumbs.svelte';
     import { onMount } from 'svelte';
+    import { base } from '$app/paths';
 
     const project_automate = Array.from({length: 16}).map((_, index) => {
         return '/projects/automate_' + (index + 1) + '.jpg';
     });
     const project_android_res_export = Array.from({length: 8}).map((_, index) => {
-        return { image: '/projects/android_res_export_' + (index + 1) + '.jpg' }
+        return { image: base + '/projects/android_res_export_' + (index + 1) + '.jpg' }
     });
 
     let projectAutomateSlidePlayer = null;
@@ -108,7 +109,7 @@
 
 <section class="works project project-automate" data-scroll-trigger>
     <div class="works-logo">
-        <img src="/projects/automate_logo.svg" alt="">
+        <img src="{base}/projects/automate_logo.svg" alt="">
     </div>
     <Heading title="Automate Sketch" date="2015/09 - ..." tools="Sketch" programme="JavaScript, CocoaScript" license="MIT" url="https://github.com/Ashung/Automate-Sketch"></Heading>
     <Description>
@@ -123,12 +124,12 @@
     </ul>
     <div class="sequence-player">
         {#each project_automate as item}
-        <img src="{item}" srcset="{item} 2x" loading="lazy" alt="">
+        <img src="{base}{item}" srcset="{base}{item} 2x" loading="lazy" alt="">
         {/each}
     </div>
     <Heading title="他们在使用 Automate" sub_heading="true"></Heading>
     <div class="works-content plugin-logos">
-        <img src="/projects/logos.jpg" srcset="/projects/logos.jpg 2x" loading="lazy" alt="">
+        <img src="{base}/projects/logos.jpg" srcset="{base}/projects/logos.jpg 2x" loading="lazy" alt="">
     </div>
     <Heading title="设计师的评价" sub_heading="true"></Heading>
     <div class="plugin-quote">
@@ -139,7 +140,7 @@
 
 <section class="works project">
     <div class="works-logo">
-        <img src="/projects/android_res_export_logo.png" srcset="/projects/android_res_export_logo.png 2x" alt="">
+        <img src="{base}/projects/android_res_export_logo.png" srcset="{base}/projects/android_res_export_logo.png 2x" alt="">
     </div>
     <Heading title="Android Res Export" date="2016/07 - ..." tools="Sketch" programme="JavaScript, CocoaScript, HTML, CSS" license="MIT" url="https://github.com/Ashung/Android_Res_Export"></Heading>
     <Description>
@@ -147,22 +148,22 @@
     </Description>
     <ul class="plugin-features">
         <li>
-            <img src="/projects/android_png.png" srcset="/projects/android_png.png 2x" alt="">PNG / WebP
+            <img src="{base}/projects/android_png.png" srcset="{base}/projects/android_png.png 2x" alt="">PNG / WebP
         </li>
         <li>
-            <img src="/projects/android_ninepatch.png" srcset="/projects/android_ninepatch.png 2x" alt="">Nine-patch
+            <img src="{base}/projects/android_ninepatch.png" srcset="{base}/projects/android_ninepatch.png 2x" alt="">Nine-patch
         </li>
         <li>
-            <img src="/projects/android_vector.png" srcset="/projects/android_vector.png 2x" alt="">Vector Drawable
+            <img src="{base}/projects/android_vector.png" srcset="{base}/projects/android_vector.png 2x" alt="">Vector Drawable
         </li>
         <li>
-            <img src="/projects/android_icon.png" srcset="/projects/android_icon.png 2x" alt="">Adaptive Icon
+            <img src="{base}/projects/android_icon.png" srcset="{base}/projects/android_icon.png 2x" alt="">Adaptive Icon
         </li>
         <li>
-            <img src="/projects/android_xml.png" srcset="/projects/android_xml.png 2x" alt="">Shape XML
+            <img src="{base}/projects/android_xml.png" srcset="{base}/projects/android_xml.png 2x" alt="">Shape XML
         </li>
         <li>
-            <img src="/projects/android_color.png" srcset="/projects/android_color.png 2x" alt="">Color XML
+            <img src="{base}/projects/android_color.png" srcset="{base}/projects/android_color.png 2x" alt="">Color XML
         </li>
     </ul>
     <Slide items={project_android_res_export} autoplay={true}/>
@@ -174,7 +175,7 @@
         <p>用于导入或转换包括 Photoshop，Illustrator 在内的多种色板格式文件，支持文本格式使得色彩管理更加方便，也可以作为设计规范中的色彩库管理，或设计文件的主题色替换。</p>
     </Description>
     <div class="project-image">
-        <img src="/projects/import_colors.jpg" srcset="/projects/import_colors.jpg 2x" loading="lazy" alt="">
+        <img src="{base}/projects/import_colors.jpg" srcset="{base}/projects/import_colors.jpg 2x" loading="lazy" alt="">
     </div>
 </section>
 
@@ -184,7 +185,7 @@
         <p>Sketch 中文数据插件，除了基础的人名、省份城市、邮箱、电话等通用数据，基于文件次序或随机的自定义数据等，通过高级配置能够生成阳历农历日期时间、随机友好格式时间、自定义编号、自定义序列数值、自定义表达式等。</p>
     </Description>
     <div class="project-image">
-        <img src="/projects/stuffing.jpg" srcset="/projects/stuffing.jpg 2x" loading="lazy" alt="">
+        <img src="{base}/projects/stuffing.jpg" srcset="{base}/projects/stuffing.jpg 2x" loading="lazy" alt="">
     </div>
 </section>
 
@@ -194,7 +195,7 @@
         <p>收集常见设计系统，用于跳转到设计系统的官方页面。</p>
     </Description>
     <div class="project-image">
-        <img src="/projects/design_systems.jpg" srcset="/projects/design_systems.jpg 2x" loading="lazy" alt="">
+        <img src="{base}/projects/design_systems.jpg" srcset="{base}/projects/design_systems.jpg 2x" loading="lazy" alt="">
     </div>
 </section>
 
@@ -204,7 +205,7 @@
         <p>Sketch 色板管理插件。由于 Sketch 已提供类似色板功能，该项目停止维护。</p>
     </Description>    
     <div class="project-image">
-        <img src="/projects/swatches.png" srcset="/projects/swatches.png 2x" loading="lazy" alt="">
+        <img src="{base}/projects/swatches.png" srcset="{base}/projects/swatches.png 2x" loading="lazy" alt="">
     </div>
 </section>
 
@@ -214,6 +215,6 @@
         <p>Sketch HSL 取色器插件。由于 Sketch 53 已包含 HSL 取色功能，该项目停止维护。</p>
     </Description>
     <div class="project-image">
-        <img src="/projects/hsl_color_picker.png" srcset="/projects/hsl_color_picker.png 2x" loading="lazy" alt="">
+        <img src="{base}/projects/hsl_color_picker.png" srcset="{base}/projects/hsl_color_picker.png 2x" loading="lazy" alt="">
     </div>
 </section>

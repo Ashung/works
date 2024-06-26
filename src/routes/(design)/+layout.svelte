@@ -5,9 +5,10 @@
     import 'swiper/css/navigation';
     import { onMount } from 'svelte';
     import { page } from '$app/stores';
+    import { base } from '$app/paths';
     import Footer from '$lib/components/footer.svelte';
 
-    $: pageIndenity = $page.url.pathname.split('/')[1] || 'home';
+    $: pageIndenity = $page.url.pathname.substring($page.url.pathname.lastIndexOf('/') + 1);
 
     onMount(() => {
         const navUnderLine = document.querySelector('nav .nav-underline');
@@ -54,17 +55,19 @@
         <span class="line line-3"></span>
     </label>
     <ul id="page-nav" class="page-nav">
-        <li><a href="/" class:current={pageIndenity === 'home'}>首页</a></li>
-        <li><a href="/os-ui" class:current={pageIndenity === 'os-ui'}>系统 UI 设计</a></li>
-        <li><a href="/web" class:current={pageIndenity === 'web'}>Web UI 设计</a></li>
-        <li><a href="/theme" class:current={pageIndenity === 'theme'}>主题图标设计</a></li>
-        <li><a href="/other" class:current={pageIndenity === 'other'}>其他作品</a></li>
-        <li><a href="/sketch-plugin" class:current={pageIndenity === 'sketch-plugin'}>Sketch 插件</a></li>
-        <li><a href="/figma-plugin" class:current={pageIndenity === 'figma-plugin'}>Figma 插件</a></li>
+        <li><a href="{base}/" class:current={pageIndenity === 'works'}>首页</a></li>
+        <li><a href="{base}/os-ui" class:current={pageIndenity === 'os-ui'}>系统 UI 设计</a></li>
+        <li><a href="{base}/web" class:current={pageIndenity === 'web'}>Web UI 设计</a></li>
+        <li><a href="{base}/theme" class:current={pageIndenity === 'theme'}>主题图标设计</a></li>
+        <li><a href="{base}/other" class:current={pageIndenity === 'other'}>其他作品</a></li>
+        <li><a href="{base}/sketch-plugin" class:current={pageIndenity === 'sketch-plugin'}>Sketch 插件</a></li>
+        <li><a href="{base}/figma-plugin" class:current={pageIndenity === 'figma-plugin'}>Figma 插件</a></li>
     </ul>
     <div id="nav-underline" class="nav-underline"></div>
 </nav>
 
+
+{pageIndenity}
 <main>
     <slot></slot>
 </main>

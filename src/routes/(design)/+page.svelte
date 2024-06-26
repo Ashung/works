@@ -1,10 +1,11 @@
 <script>
+    import { base } from '$app/paths';
     const skills = [
         'UI 设计', '响应式设计', 'UX', 'Icon 设计', '平面设计', '网页设计', '字体设计', '交互设计', '摄影', 
         'Design System', 'DesignOps', 'H5',
         'Responsive Design', 'Android', 'iOS', 'macOS',
         'Photoshop', 'Illustrator', 'Sketch', 'Figma',
-        'HTML', 'CSS', 'JavaScript', 'Node.js', 'TypeScript', 'Vue', 'Svelte', 'Markdown',
+        'HTML', 'CSS', 'JavaScript', 'Node.js', 'TypeScript', 'Vue', 'Svelte', 
         'Shell', 'Git', 'Linux'
     ];
 </script>
@@ -25,11 +26,11 @@
         </p>
         <ul class="contacts">
             <li class="ic-phone"><span class="label">电话:</span> <a href="tel://13666092891">136 6609 2891</a></li>
-            <li class="ic-wechat"><span class="label">微信:</span> <a class="wechat" href={"javascript:void('0');"}>通过电话添加或点此扫码</a> <img class="wechat-qrcode" src="/wechat.jpg" alt=""></li>
+            <li class="ic-wechat"><span class="label">微信:</span> <a class="wechat" href={"javascript:void('0');"}>通过电话添加或点此扫码</a> <img class="wechat-qrcode" src="{base}/wechat.jpg" alt=""></li>
             <li class="ic-mail"><span class="label">邮件:</span> <a href="mailto://ashung.hung@foxmail.com">ashung.hung@foxmail.com</a></li>
             <li class="ic-resume"><span class="label">简历:</span> 
-                <a href="/resume/洪斯胜_UI设计.pdf" target="_blank">下载 PDF 简历</a>
-                <a href="/resume/ui">HTML</a>
+                <a href="{base}/resume/洪斯胜_UI设计.pdf" target="_blank">下载 PDF 简历</a>
+                <a href="{base}/resume/ui" target="_blank">HTML</a>
             </li>
             <li class="ic-web"><span class="label">网站:</span> 
                 开源项目 <a href="https://github.com/Ashung" target="_blank">github</a><br/>
@@ -41,37 +42,37 @@
         <h3>近期作品</h3>
         <ul>
             <li>
-                <a href="/os-ui">
+                <a href="{base}/os-ui">
                     <h4>系统 UI 设计作品</h4>
                     <p>基于 Android 的系统设计、图标设计和应用 UI</p>
                 </a>
             </li>
             <li>
-                <a href="/web">
+                <a href="{base}/web">
                     <h4>Web 设计作品</h4>
                     <p>Web UI 设计、UI 框架组件设计、网站设计</p>
                 </a>
             </li>
             <li>
-                <a href="/theme">
+                <a href="{base}/theme">
                     <h4>主题图标设计作品</h4>
                     <p>手机主题图标设计</p>
                 </a>
             </li>
             <li>
-                <a href="/other">
+                <a href="{base}/other">
                     <h4>其他类型作品</h4>
                     <p>桌面端应用 UI 设计、字库设计、工具类开发</p>
                 </a>
             </li>
             <li>
-                <a href="/sketch-plugin">
+                <a href="{base}/sketch-plugin">
                     <h4>Sketch 插件项目</h4>
                     <p>Sketch 插件设计和开发</p>
                 </a>
             </li>
             <li>
-                <a href="/figma-plugin">
+                <a href="{base}/figma-plugin">
                     <h4>Figma 插件项目</h4>
                     <p>Figma 插件设计和开发</p>
                 </a>
@@ -86,7 +87,6 @@
             <li class="dot">&nbsp;</li>
             {/if}
             <li>{item}</li>
-            
             {/each}
         </ul>
     </div>

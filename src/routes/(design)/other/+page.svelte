@@ -1,4 +1,5 @@
 <script>
+    import { base } from '$app/paths';
     import Heading from '$lib/components/heading.svelte';
     import Description from '$lib/components/description.svelte';
     import Scroller from '$lib/components/scroller.svelte';
@@ -201,7 +202,7 @@
     </Description>
     {#each work_desktop_app as item}
     <figure>
-        <img src="{item.image}" srcset="{item.image} 2x" loading="lazy" alt="">
+        <img src="{base}{item.image}" srcset="{base}{item.image} 2x" loading="lazy" alt="">
         <figcaption>{item.text}</figcaption>
     </figure>
     {/each}
@@ -215,7 +216,7 @@
     </Description>
     {#each work_font as item}
     <figure>
-        <img src="{item.image}" srcset="{item.image} 2x" loading="lazy" alt="">
+        <img src="{base}{item.image}" srcset="{base}{item.image} 2x" loading="lazy" alt="">
         <figcaption>{item.text}</figcaption>
     </figure>
     {/each}
@@ -269,7 +270,7 @@
         <p>由多个命令行工具组成的，考虑到操作效率以及服务端使用，将工具做成成命令行工具。功能包括制作系统主题包，壁纸自动裁切，文件批量命名等等。</p>
     </Description>
     <video id="theme-tools-video" muted playsinline loop data-scroll-trigger>
-        <source type="video/mp4" src="/360os_theme_tools/theme_cli_tools.mp4"/>
+        <source type="video/mp4" src="{base}/360os_theme_tools/theme_cli_tools.mp4"/>
     </video>
 </section>
 
@@ -281,7 +282,7 @@
     </Description>
     <div class="sequence-player">
         {#each project_theme_app as item}
-        <img src="{item}" srcset="{item} 2x" loading="lazy" alt="">
+        <img src="{base}{item}" srcset="{base}{item} 2x" loading="lazy" alt="">
         {/each}
     </div>
 </section>

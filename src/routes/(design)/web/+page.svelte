@@ -1,4 +1,5 @@
 <script>
+    import { base } from '$app/paths';
     import Heading from '$lib/components/heading.svelte';
     import Description from '$lib/components/description.svelte';
     import SectionThumbs from '$lib/components/section_thumbs.svelte';
@@ -34,19 +35,19 @@
     <div class="figure">
         <div class="work-thumbs-grid thumbs-grid-3">
         {#each work_web_ui_guide as item}
-            <img src="{item.image}" srcset="{item.image} 2x" loading="lazy" alt="">
+            <img src="{base}{item.image}" srcset="{base}{item.image} 2x" loading="lazy" alt="">
         {/each}
         </div>
         <div class="caption">UI 规范，包括字体、色彩、布局、组件、标注等</div>
     </div>
     <figure>
-        <img src="/cadothy_sass/icon.png" srcset="/cadothy_sass/icon.png 2x" loading="lazy" alt="">
+        <img src="{base}/cadothy_sass/icon.png" srcset="{base}/cadothy_sass/icon.png 2x" loading="lazy" alt="">
         <figcaption>16px 图标，SVG 或图标字体格式</figcaption>
     </figure>
     <div class="figure">
         <div class="work-thumbs-grid thumbs-grid-2">
         {#each work_web_ui_page as item}
-            <img src="{item.image}" srcset="{item.image} 2x" loading="lazy" alt="">
+            <img src="{base}{item.image}" srcset="{base}{item.image} 2x" loading="lazy" alt="">
         {/each}
         </div>
         <div class="caption">部分界面</div>
@@ -61,7 +62,7 @@
     </Description>
     {#each work_web_site as item}
     <figure>
-        <img src="{item.image}" srcset="{item.image} 2x" loading="lazy" alt="">
+        <img src="{base}{item.image}" srcset="{base}{item.image} 2x" loading="lazy" alt="">
         <figcaption>{item.text}</figcaption>
     </figure>
     {/each}

@@ -1,4 +1,5 @@
 <script>
+    import { base } from '$app/paths';
     import Heading from '$lib/components/heading.svelte';
     import Description from '$lib/components/description.svelte';
     import SectionThumbs from '$lib/components/section_thumbs.svelte';
@@ -12,7 +13,7 @@
         <p>Figma 首批上线的插件之一，用于导出多尺寸 PNG，点九资源，响应式图标等资源，解决了 Figma 无法将多种尺寸资源导出到 Android 特定的文件结构，以及处理点九资源多种尺寸的问题。</p>
     </Description>
     <div class="project-image">
-        <img src="/projects/android_resources_export.jpg" srcset="/projects/android_resources_export.jpg 2x" loading="lazy" alt="">
+        <img src="{base}/projects/android_resources_export.jpg" srcset="{base}/projects/android_resources_export.jpg 2x" loading="lazy" alt="">
     </div>
 </section>
 
@@ -22,7 +23,7 @@
         <p>实时查看选中图层的 Vector Drawable 代码，以及复制和导出代码功能。</p>
     </Description>
     <div class="project-image">
-        <img src="/projects/android_vector_drawable.jpg" srcset="/projects/android_vector_drawable.jpg 2x" alt="">
+        <img src="{base}/projects/android_vector_drawable.jpg" srcset="{base}/projects/android_vector_drawable.jpg 2x" alt="">
     </div>
 </section>
 
@@ -32,7 +33,7 @@
         <p>用于中西文混排为文本图层中的中文和西文指定不同的字体，以及为解决中文输入的实时文本编辑。可以保存多种混排预设组合。</p>
     </Description>
     <div class="project-image">
-        <img src="/projects/mixfonts.jpg" srcset="/projects/mixfonts.jpg 2x" loading="lazy" alt="">
+        <img src="{base}/projects/mixfonts.jpg" srcset="{base}/projects/mixfonts.jpg 2x" loading="lazy" alt="">
     </div>
 </section>
 
@@ -42,7 +43,7 @@
         <p>Frame 尺寸修改插件，解决了 Figma 默认没有按方向调整尺寸的功能，以及无法在不修改内部图层约束的情况快速调整至特定尺寸而不影响内部图层。其中尺寸预设功能，可以快速批量修改 Frame 尺寸。</p>
     </Description>
     <div class="project-image">
-        <img src="/projects/frame_resizer.jpg" srcset="/projects/frame_resizer.jpg 2x" loading="lazy" alt="">
+        <img src="{base}/projects/frame_resizer.jpg" srcset="{base}/projects/frame_resizer.jpg 2x" loading="lazy" alt="">
     </div>
 </section>
 
@@ -52,6 +53,6 @@
         <p>使用本地的文本和图片的数据填充插件，将文本文件或多张图片拖放到插件界面就可以为选中图层快速填充内容。</p>
     </Description>
     <div class="project-image">
-        <img src="/projects/data_from_local.jpg" srcset="/projects/data_from_local.jpg 2x" loading="lazy" alt="">
+        <img src="{base}/projects/data_from_local.jpg" srcset="{base}/projects/data_from_local.jpg 2x" loading="lazy" alt="">
     </div>
 </section>

@@ -6,23 +6,24 @@
     import SectionThumbs from '$lib/components/section_thumbs.svelte';
 
     import { onMount } from 'svelte';
+    import { base } from '$app/paths';
 
     const work_360os_themes = [
-        { image: '/360os_themes/theme_3.jpg', text: '360 F 系列手机默认主题。该系列手机是主要针对年轻群体千元机，默认主题的设计也倾向年轻活力，又不失品质。' },
-        { image: '/360os_themes/theme_4.jpg', text: '针对 360 Q 系列而设计的主题。该系列手机是主要针对高端商务人群，主题的设计也给人豪华、品质和稳重的感觉。' },
-        { image: '/360os_themes/theme_9.jpg', text: '针对商务版手机而设计的默认主题。' },
-        { image: '/360os_themes/theme_5.jpg', text: '针对海外市场定制的圣诞主题。在烘托节日气氛的同时，也保留了作为手机应用图标该有的辨识度。' },
-        { image: '/360os_themes/theme_6.jpg', text: '单色图标搭配多彩的渐变背景。' },
-        { image: '/360os_themes/theme_7.jpg', text: '风格尝试' },
-        { image: '/360os_themes/theme_8.jpg', text: '风格尝试' },
+        { image: base + '/360os_themes/theme_3.jpg', text: '360 F 系列手机默认主题。该系列手机是主要针对年轻群体千元机，默认主题的设计也倾向年轻活力，又不失品质。' },
+        { image: base + '/360os_themes/theme_4.jpg', text: '针对 360 Q 系列而设计的主题。该系列手机是主要针对高端商务人群，主题的设计也给人豪华、品质和稳重的感觉。' },
+        { image: base + '/360os_themes/theme_9.jpg', text: '针对商务版手机而设计的默认主题。' },
+        { image: base + '/360os_themes/theme_5.jpg', text: '针对海外市场定制的圣诞主题。在烘托节日气氛的同时，也保留了作为手机应用图标该有的辨识度。' },
+        { image: base + '/360os_themes/theme_6.jpg', text: '单色图标搭配多彩的渐变背景。' },
+        { image: base + '/360os_themes/theme_7.jpg', text: '风格尝试' },
+        { image: base + '/360os_themes/theme_8.jpg', text: '风格尝试' },
     ];
 
     const work_coolpad_icon = Array.from({length: 18}).map((_, index) => {
-        return { image: '/coolpad/c_' + (index + 1) + '.jpg' }
+        return { image: base + '/coolpad/c_' + (index + 1) + '.jpg' }
     });
 
     const work_doov_icon = Array.from({length: 31}).map((_, index) => {
-        return { image: '/doov/d_' + (index + 1) + '.jpg' }
+        return { image: base + '/doov/d_' + (index + 1) + '.jpg' }
     });
 
     let doCreateWidgetSky = true;
@@ -357,9 +358,9 @@
         <p>360OS 4.0 的内置主题设计，针对海外的手机商与用户的喜好，图标采用了辨识度较高的图形设计，色彩明快，简洁的扁平化风格。</p>
     </Description>
     <div class="theme-preview">
-        <img width="260" height="520" src="/360os_theme_1/preview1.jpg" srcset="/360os_theme_1/preview1.jpg 2x" alt="">
-        <img width="260" height="520" src="/360os_theme_1/preview2.jpg" srcset="/360os_theme_1/preview2.jpg 2x" alt="">
-        <img width="260" height="520" src="/360os_theme_1/preview3.jpg" srcset="/360os_theme_1/preview3.jpg 2x" alt="">
+        <img width="260" height="520" src="{base}/360os_theme_1/preview1.jpg" srcset="{base}/360os_theme_1/preview1.jpg 2x" alt="">
+        <img width="260" height="520" src="{base}/360os_theme_1/preview2.jpg" srcset="{base}/360os_theme_1/preview2.jpg 2x" alt="">
+        <img width="260" height="520" src="{base}/360os_theme_1/preview3.jpg" srcset="{base}/360os_theme_1/preview3.jpg 2x" alt="">
     </div>
     <Heading title="灵活的图标形状" sub_heading="true"></Heading>
     <Description>
@@ -445,7 +446,7 @@
                 <use x="960" y="552" xlink:href="#icon-shape"/>
             </mask>
         </defs>
-        <image xlink:href="/360os_theme_1/icon.jpg" x="0" y="0" height="528" width="936" mask="url(#mask)"/>
+        <image xlink:href="{base}/360os_theme_1/icon.jpg" x="0" y="0" height="528" width="936" mask="url(#mask)"/>
     </svg>
     <Heading title="Widget 设计" sub_heading="true"></Heading>
     <Description>
@@ -473,7 +474,7 @@
         <p>针对海外市场的主题，采用不规则形状的图标设计，色彩鲜艳，风格活泼可爱，符合年轻人的喜好。</p>
     </Description>
     <figure>
-        <img src="/360os_themes/theme_1_2.jpg" srcset="/360os_themes/theme_1_2.jpg 2x" loading="lazy" alt="">
+        <img src="{base}/360os_themes/theme_1_2.jpg" srcset="{base}/360os_themes/theme_1_2.jpg 2x" loading="lazy" alt="">
     </figure>
 </section>
 
@@ -490,12 +491,12 @@
                 <div class="music-icon-shine2"></div>
             </div>
             <div id="music-icon-fg">
-                <img src="/360os_themes/music_icon.png" srcset="/360os_themes/music_icon.png 2x" alt="">
+                <img src="{base}/360os_themes/music_icon.png" srcset="{base}/360os_themes/music_icon.png 2x" alt="">
             </div>
         </div>
     </div>
     <figure>
-        <img src="/360os_themes/theme_2_2.jpg" srcset="/360os_themes/theme_2_2.jpg 2x" loading="lazy" alt="">
+        <img src="{base}/360os_themes/theme_2_2.jpg" srcset="{base}/360os_themes/theme_2_2.jpg 2x" loading="lazy" alt="">
     </figure>
 </section>
 
@@ -505,7 +506,7 @@
         <p>超写实风格图标设计。在扁平盛行的环境下，写实风格更能体现设计师的功底，在个别图标上还增加了更真实感的动画特效。</p>
     </Description>
     <div class="theme-wrap" data-scroll-trigger>
-        <img width="1160" height="440" src="/360os_theme_2/icon.jpg" srcset="/360os_theme_2/icon.jpg 2x" alt="">
+        <img width="1160" height="440" src="{base}/360os_theme_2/icon.jpg" srcset="{base}/360os_theme_2/icon.jpg 2x" alt="">
     </div>
 </section>
 
